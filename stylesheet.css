@@ -18,16 +18,16 @@
   font-display: swap;
 }
 
-
+html {
+  cursor: url("Hand-Arrow.cur"), default;
+}
 
 h1, h2 {
   text-align: center;
   font-size: 60px;
 }
 
-html {
-  cursor: url("Hand-Arrow.cur"), default;
-}
+
 
 p {
   text-align: center;
@@ -64,47 +64,6 @@ li a:hover {
   background-color: #111;
 }
 
-/* .navbar {
-  width: 80%;
-  background-color: #102A43;
-  opacity: 80%;
-  margin: auto;
-  padding: auto;
-  display: inline-block;
-  border-color: #2F4C39;
-  display: inline-block;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
-*/
-
-.content {
-  width: 60vw;
-/*  float: right; */
-  align-content: center;
-  background: url("oneshot_refuge.png");
-  background-repeat: no-repeat;
-  background-size: 60vw 100vh;
-  background-attachment: fixed;
-  background-position: right;
-  margin-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-}
-
-
-.paragraph {
-  width: 60%;
-  background-color: rgba(47, 76, 57, 0.5);
-  display: block;
-  position: static;
-  margin: auto;
-  padding: 10px;
-}
-
-
 .reno {
   font-family: renogare;
 }
@@ -121,46 +80,6 @@ li a:hover {
 .white {
   color: white;
 }
-
-.leftpage {
-  background-image: url("background2.png");
-  background-size: 40vw 100vh;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin: 0;
-  float: left;
-  background-position: left;
-}
-
-/*
-#todobutton {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background-color: #F8F0E3;
-  width: 60px;
-  height: 60px;
-  float: right;
-  margin: 0;
-  display: contents;
-  overflow: visible;
-  border: 5px solid #f33;
-}
-
-
-.slide {
-  clear:both;
-  width: 0;
-  height: 100%;
-  overflow: hidden;
-  text-align: center;
-  transition: width .2s ease-out, height .4s ease-out;
-  background-color: #F8F0E3;
-}
-
-#touch {position: absolute; height: 0px;}
-
-#touch:checked + .slide {height: 80vh; width: 45vw;}
-*/
 
 nav {
   width : 300px;
@@ -189,3 +108,33 @@ span {
 #touch {position: absolute; opacity: 0; height: 0px;}
 
 #touch:checked + .slide {height: 300px;} + .span {background: #d9d9d9;}
+
+.main {
+  width: 50vw;
+  height: 100vh;
+  left: 0;
+  display: block;
+  background-image: url("oneshot_refuge.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-attachment: scroll;
+  background-clip: border-box;
+  float:left;
+  margin: 0;
+
+}
+
+  .secondary {
+    width: 50vw;
+    height: 100vh;
+    right: 0;
+    display: inline-block;
+    background-image: url("background2.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: right;
+    background-clip: border-box;
+    float: right;
+    margin: 0;
+
+  }
