@@ -42,6 +42,7 @@ ul {
   width: 100%;
   background-color: #2F4C39;
   margin: 0;
+  z-index: 100;
 }
 
 li {
@@ -126,6 +127,7 @@ span {
   background-clip: border-box;
   float:left;
   margin: 0;
+  border: 0;
 
 }
 
@@ -142,6 +144,7 @@ span {
     background-clip: border-box;
     float: right;
     margin: 0;
+    border: 0;
 
   }
 
@@ -157,6 +160,10 @@ span {
   border-radius: 30px;
   margin-left: 10vw;
   margin-right: 10vw;
+}
+
+.together {
+  align-items: flex-start;
 }
 
   .button {
