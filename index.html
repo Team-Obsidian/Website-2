@@ -14,20 +14,18 @@
         <li><a class="white reno" href="#">Misc</a></li>
       </ul>
 
-
-
+<div id="todo">
+  <nav>
+    <label for="touch"><span>To do:</span></label>
+    <input type="checkbox" id="touch">
+    <div class="slide"><p class="black apple">Fix this awful looking UI and horrible UX</p></div>
+  </nav>
+<div>
 
 
 
 <div class="main">
 
-  <nav>
-    <label for="touch"><span>To do:</span></label>
-    <input type="checkbox" id="touch">
-    <div class="slide">
-      <li><br><p class="white reno">Fix this awful looking UI and horrible UX</p></li>
-    </div>
-  </nav>
 
   <p class="white apple"><br><br><br></p>
   <p class="white apple">Testing testing 1 2 3!</p>
@@ -35,7 +33,7 @@
 
 <audio id="myAudio" src="forestfrenzy.mp3" preload="auto">
 </audio>
-<img src="spider_bunny.webp" onClick="togglePlay()" >
+<img id="musictoggle" src="spider_bunny.webp" onClick="togglePlay()">
 
 <script>
 var myAudio = document.getElementById("myAudio");
