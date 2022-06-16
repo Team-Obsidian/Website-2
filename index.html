@@ -32,23 +32,16 @@
   <p class="white apple"><br><br><br></p>
   <p class="white apple">Testing testing 1 2 3!</p>
 
-  <audio id="music" src="forestfrenzy.mp3" preload="auto" loop >
+
+<audio id="myAudio" src="forestfrenzy.mp3" preload="auto">
 </audio>
-<button type="button" onClick="togglePlay()">Click here to hear.</button>
+<img src="spider_bunny.webp" onClick="togglePlay()" >
 
 <script>
-var myAudio = document.getElementById("music");
-var isPlaying = true;
+var myAudio = document.getElementById("myAudio");
 
 function togglePlay() {
-  isPlaying ? music.pause() : music.play();
-};
-
-music.onplaying = function() {
-  isPlaying = true;
-};
-music.onpause = function() {
-  isPlaying = false;
+  return myAudio.paused ? myAudio.play() : myAudio.pause();
 };
 </script>
 
