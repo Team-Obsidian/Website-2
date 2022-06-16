@@ -37,12 +37,11 @@ p {
 ul {
   list-style-type: none;
   overflow: hidden;
-  position: static;
-  /* top:0; */
+  position: fixed;
+  top:0;
   width: 100%;
   background-color: #2F4C39;
   margin: 0;
-  padding-bottom: 20px;
 }
 
 li {
@@ -83,6 +82,8 @@ li a:hover {
 
 nav {
   width : 300px;
+  position: absolute;
+  top: 58px;
 }
 
 span {
@@ -92,7 +93,7 @@ span {
   font-size : 1.2em;
   font-variant : small-caps;
   cursor : pointer;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .slide {
@@ -110,8 +111,8 @@ span {
 #touch:checked + .slide {height: 300px;} + .span {background: #d9d9d9;}
 
 .main {
-  width: 50vw;
-  height: 100vh;
+  width: 60vw;
+  height: 95vh;
   left: 0;
   display: block;
   background-image: url("oneshot_refuge.png");
@@ -125,12 +126,13 @@ span {
 }
 
   .secondary {
-    width: 50vw;
-    height: 100vh;
+    width: 38vw;
+    height: 95vh;
     right: 0;
-    display: inline-block;
+    display: block;
     background-image: url("background2.png");
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     background-attachment: scroll;
     background-position: right;
     background-clip: border-box;
