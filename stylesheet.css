@@ -102,6 +102,7 @@ span {
   overflow: hidden;
   text-align: center;
   transition: height .4s ease;
+  position: absolute;
 }
 
 .slide li {padding : 30px;}
@@ -132,9 +133,9 @@ span {
     display: block;
     background-image: url("background2.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 1920px 1200px;
     background-attachment: scroll;
-    background-position: right;
+    background-position: left;
     background-clip: border-box;
     float: right;
     margin: 0;
