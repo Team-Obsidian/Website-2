@@ -32,7 +32,26 @@
   <p class="white apple"><br><br><br></p>
   <p class="white apple">Testing testing 1 2 3!</p>
 
-  <input type="checkbox">
+  <audio id="music" src="forestfrenzy.mp3" preload="auto" loop >
+</audio>
+<a onClick="togglePlay()">Click here to hear.</a>
+
+<script>
+var myAudio = document.getElementById("music");
+var isPlaying = true;
+
+function togglePlay() {
+  isPlaying ? music.pause() : music.play();
+};
+
+music.onplaying = function() {
+  isPlaying = true;
+};
+music.onpause = function() {
+  isPlaying = false;
+};
+</script>
+
 </div>
 
 <div class="secondary">
