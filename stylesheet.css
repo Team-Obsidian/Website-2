@@ -112,7 +112,7 @@ span {
 
 #touch {position: absolute; opacity: 0; width: 0px;}
 
-#touch:checked + .slide {width: 90vw;}
+#touch:checked + .slide {width: 30vw;}
 
 .main {
   width: 60vw;
@@ -149,6 +149,14 @@ span {
   bottom: 10px;
   left: 10px;
   position: absolute;
+}
+
+.paragraph {
+  background: rgba(120, 120, 80, 0.5);
+  text-align: center;
+  border-radius: 30px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
   .button {
