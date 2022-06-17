@@ -6,58 +6,60 @@
   <title>Attempt 2!</title>
   <link href="stylesheet.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="Favicon.png">
+  <script src="index.js"></script>
 </head>
       <ul>
-        <li><a class="white reno" href="#">Home</a></li>
-        <li><a class="white reno" href="#">Games</a></li>
-        <li><a class="white reno" href="#">Music</a></li>
-        <li><a class="white reno" href="#">Misc</a></li>
+        <li><a class="white reno" id="home">Home</a></li>
+        <li><a class="white reno" id="games">Games</a></li>
+        <li><a class="white reno" id="music">Music</a></li>
+        <li><a class="white reno" id="misc">Misc</a></li>
       </ul>
+<div id="home_page">
+  <div id="todo">
+    <nav>
+      <label for="touch"><span>To do:</span></label>
+      <input type="checkbox" id="touch">
+      <div class="slide"><p class="black apple">Fix this awful looking UI and horrible UX</p></div>
+    </nav>
+  <div>
 
-<div id="todo">
-  <nav>
-    <label for="touch"><span>To do:</span></label>
-    <input type="checkbox" id="touch">
-    <div class="slide"><p class="black apple">Fix this awful looking UI and horrible UX</p></div>
-  </nav>
-<div>
-
-
-
-  <div class="main">
+    <div class="main">
 
 
-    <p class="white apple"><br><br><br></p>
-    <p class="white apple">Testing testing 1 2 3!</p>
+      <p class="white apple"><br><br><br></p>
+      <p class="white apple">Testing testing 1 2 3!</p>
 
-    <div class="paragraph">
-      <p class="white reno">Paragraph Testing 1 2 3 4 5 6 7 8 9 ipsum set amet dolor wow wrong order</p>
+      <div class="paragraph">
+        <p class="white reno">Paragraph Testing 1 2 3 4 5 6 7 8 9 ipsum set amet dolor wow wrong order</p>
+      </div>
+
+
+    <audio id="myAudio" src="forestfrenzy.mp3" preload="auto">
+    </audio>
+    <img id="musictoggle" src="spider_bunny.webp" onClick="togglePlay()">
+
+    <script>
+    var myAudio = document.getElementById("myAudio");
+
+    function togglePlay() {
+      return myAudio.paused ? myAudio.play() : myAudio.pause();
+    };
+
+    </script>
+
     </div>
 
-
-  <audio id="myAudio" src="forestfrenzy.mp3" preload="auto">
-  </audio>
-  <img id="musictoggle" src="spider_bunny.webp" onClick="togglePlay()">
-
-  <script>
-  var myAudio = document.getElementById("myAudio");
-
-  function togglePlay() {
-    return myAudio.paused ? myAudio.play() : myAudio.pause();
-  };
-
-  </script>
-
-  </div>
-
-  <div class="secondary">
-    <p class="white apple"><br><br><br></p>
-    <p class="white apple">Testing testing 1 2 3!</p>
+    <div class="secondary">
+      <p class="white apple"><br><br><br></p>
+      <p class="white apple">Testing testing 1 2 3!</p>
 
 
-  </div>
+    </div>
+</div>
 
-
+<div id="games_page">
+  <p class="black apple">entirely new gaming text</p>
+</div>
 
 
 </html>
