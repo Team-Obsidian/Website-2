@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Apple Kid';
-    src: url('Apple-Kid.eot');
-    src: url('Apple-Kid.eot?#iefix') format('embedded-opentype'),
-        url('Apple-Kid.woff2') format('woff2'),
-        url('Apple-Kid.woff') format('woff'),
-        url('Apple-Kid.ttf') format('truetype');
+    src: url('../font/Apple-Kid.eot');
+    src: url('../font/Apple-Kid.eot?#iefix') format('embedded-opentype'),
+        url('../font/Apple-Kid.woff2') format('woff2'),
+        url('../font/Apple-Kid.woff') format('woff'),
+        url('../font/Apple-Kid.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,14 +12,14 @@
 
 @font-face {
   font-family: 'renogare';
-  src: url('renogare.ttf') format('truetype');
+  src: url('../font/renogare.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 html {
-  cursor: url("Hand-Arrow.cur"), default;
+  cursor: url("../img/icon/Hand-Arrow.cur"), default;
 }
 
 h1, h2 {
@@ -105,7 +105,7 @@ span {
   text-align: left;
   transition: width 1s ease-in;
   position: absolute;
-  background-image: url("crumpledpaper.jpg");
+  background-image: url("../img/background/crumpledpaper.jpg");
   background-size: 1920px 1200px;
   background-clip: border-box;
   display: inline-block;
@@ -120,7 +120,7 @@ span {
   height: 95vh;
   left: 0;
   display: block;
-  background-image: url("oneshot_refuge.png");
+  background-image: url("../img/background/oneshot_refuge.png");
   background-repeat: no-repeat;
   background-position: left;
   background-attachment: scroll;
@@ -136,7 +136,7 @@ span {
     height: 95vh;
     right: 0;
     display: block;
-    background-image: url("background2.png");
+    background-image: url("../img/background/background2.png");
     background-repeat: no-repeat;
     background-size: 1920px 1200px;
     background-attachment: scroll;
