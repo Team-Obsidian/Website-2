@@ -161,24 +161,3 @@ span {
   margin-left: 10vw;
   margin-right: 10vw;
 }
-
-#home:active + #home_page {opacity:1;} + #games_page {opacity: 0;} + #music_page {opacity: 0;} + #misc_page {opacity: 0;}
-#games:active + #home_page {opacity:0;} + #games_page {opacity: 1;} + #music_page {opacity: 0;} + #misc_page {opacity: 0;}
-
-
-
-#home_page {
-  opacity: 1;
-}
-
-#games_page {
-  opacity: 0;
-}
-
-#music_page {
-  opacity: 0;
-}
-
-#misc_page {
-  display: 0;
-}
