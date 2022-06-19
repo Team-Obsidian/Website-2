@@ -90,6 +90,12 @@ li a:hover {
   padding: 0;
 }
 
+#musictoggle {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+}
+
 #emulators {
   z-index: 1;
   position: absolute;
@@ -160,4 +166,8 @@ li a:hover {
   top: 0;
   left: 0;
   z-index: 0;
+}
+
+img {
+  z-index: 10;
 }

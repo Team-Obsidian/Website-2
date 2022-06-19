@@ -15,6 +15,20 @@
       </ul>
 
 <body class="container">
+
+    <audio id="myAudio" src="../sound/forestfrenzy.mp3" preload="auto" loop >
+    </audio>
+    <img id="musictoggle" src="../img/icon/ghostbunny.gif" onClick="togglePlay()">
+
+  <script>
+  var myAudio = document.getElementById("myAudio");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+  };
+
+  </script>
+
     <video width"1920" height="1200" autoplay muted loop id="myVideo">
       <source src="../img/background/pmd_background.mp4" type="video/mp4">
       Test
@@ -30,3 +44,5 @@
       <h1 class="reno">HTML5 / Other</h1>
   </div>
 </body>
+
+</html>
