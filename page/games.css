@@ -102,12 +102,57 @@ li a:hover {
   height: 20%;
   background: rgba(127, 80, 50, 0.2);
   border-radius: 50px;
-  transition: background 1s;
+  transition: background 1s, color 0.5s;
   cursor: pointer;
 }
 
 #emulators:hover {
-  background: rgba(80, 20, 10, 0.8)
+  background: rgba(80, 20, 10, 0.8);
+  color: #FFFFFF;
+}
+
+#rpgmaker {
+  z-index: 1;
+  position: absolute;
+  align-content: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 10vh;
+  margin-right: 10vh;
+  margin-left: 55%;
+  width: 40%;
+  height: 15%;
+  background: rgba(127, 80, 50, 0.2);
+  border-radius: 40px;
+  transition: background 1s, color 0.5s;
+  cursor: pointer;
+}
+
+#rpgmaker:hover {
+  background: rgba(80, 20, 10, 0.8);
+  color: #FFFFFF;
+}
+
+#web_game {
+  z-index: 1;
+  position: absolute;
+  align-content: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-top: 60vh;
+  margin-right: 10vh;
+  margin-left: 55%;
+  width: 40%;
+  height: 15%;
+  background: rgba(127, 80, 50, 0.2);
+  border-radius: 40px;
+  -webkit-transition: background 1s, color 0.5s;
+  cursor: pointer;
+}
+
+#web_game:hover {
+  background: rgba(80, 20, 10, 0.8);
+  color: #FFFFFF;
 }
 
 #myVideo {
