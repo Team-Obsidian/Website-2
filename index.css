@@ -20,6 +20,7 @@
 
 html {
   cursor: url("../img/icon/Hand-Arrow.cur"), default;
+  overflow: hidden;
 }
 
 h1, h2 {
@@ -27,6 +28,10 @@ h1, h2 {
   font-size: 60px;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
 
 
 p {
@@ -117,35 +122,40 @@ span {
 
 .main {
   width: 60vw;
-  height: 95vh;
-  left: 0;
-  display: block;
+  height: 100vh;
   background-image: url("../img/background/oneshot_refuge.png");
   background-repeat: no-repeat;
   background-position: left;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-clip: border-box;
   float:left;
   margin: 0;
-  border: 0;
+
 
 }
 
+.main::-webkit-scrollbar {
+  display: none;
+}
+
 .secondary {
-    width: 38vw;
-    height: 95vh;
-    right: 0;
-    display: block;
+    width: 40vw;
+    height: 100vh;
     background-image: url("../img/background/background2.png");
     background-repeat: no-repeat;
     background-size: 1920px 1200px;
-    background-attachment: scroll;
-    background-position: left;
+    background-attachment: fixed;
+    background-position: right;
     background-clip: border-box;
     float: right;
+    overflow-y: scroll;
+    overflow-x: hidden;
     margin: 0;
     border: 0;
+  }
 
+  .secondary::-webkit-scrollbar {
+    display: none;
   }
 
 #musictoggle {
@@ -160,4 +170,5 @@ span {
   border-radius: 30px;
   margin-left: 10vw;
   margin-right: 10vw;
+  margin-top: 15vh;
 }
