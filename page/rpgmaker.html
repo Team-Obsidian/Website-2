@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games</title>
+  <link href="rpgmaker.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
+</head>
+      <ul>
+        <li><a class="white reno" href="../index.html">Home</a></li>
+        <li><a class="white reno" href="games.html">Games</a></li>
+        <li><a class="white reno" href="#">Music</a></li>
+        <li><a class="white reno" href="#">Misc</a></li>
+      </ul>
+
+<body>
+  <div class="container">
+    <audio id="myAudio" src="../sound/goodforhealth.mp3" preload="auto" autoplay loop >
+    </audio>
+    <img id="musictoggle" src="../img/icon/ghostbunny.gif" onClick="togglePlay()">
+
+    <script>
+    var myAudio = document.getElementById("myAudio");
+
+    function togglePlay() {
+      return myAudio.paused ? myAudio.play() : myAudio.pause();
+    };
+
+    </script>
+
+
+    <div onclick="window.location='https://team-obsidian.github.io/rpgmaker2003/?game=yumenikki';" id="rpgmaker">
+    </div>
+  </div>
+</body>
+
+</html>
