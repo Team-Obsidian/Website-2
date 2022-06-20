@@ -33,7 +33,7 @@ h1, h2 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../img/background/bg6.png");
+  background-image: url("../img/background/deltarunebattlebg.gif");
   background-repeat: repeat;
 }
 
@@ -98,7 +98,7 @@ li a:hover {
   margin: 0;
   padding: 0;
   z-index: 2;
-  background: rgba(20, 50, 20, 0.1);
+  background: rgba(20, 50, 20, 0.2);
 }
 
 #musictoggle {
@@ -109,7 +109,7 @@ li a:hover {
 
 
 
-#rpgmaker {
+#yumenikki {
   z-index: 1;
   position: absolute;
   align-content: center;
@@ -118,7 +118,6 @@ li a:hover {
   margin-left: 55%;
   width: 20%;
   height: 20%;
-  background: rgba(127, 80, 50, 0.2);
   border-radius: 20px;
   transition: background 0.1s linear, color 0.5s;
   cursor: pointer;
@@ -130,7 +129,7 @@ li a:hover {
   color: #FFFFFF;
 }
 
-#rpgmaker:hover {
+#yumenikki:hover {
   background-image: url("../img/yumenikkidocks.gif");
   background-size: cover;
   background-repeat: no-repeat;
