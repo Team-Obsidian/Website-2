@@ -14,25 +14,30 @@
         <li><a class="white reno" href="#">Misc</a></li>
       </ul>
 
-<body>
-  <div class="container">
-    <audio id="myAudio" src="../sound/goodforhealth.mp3" preload="auto" autoplay loop >
-    </audio>
-    <img id="musictoggle" src="../img/icon/ghostbunny.gif" onClick="togglePlay()">
+<audio id="myAudio" src="../sound/dreamyard.mp3" preload="auto" autoplay loop >  </audio>
+<img id="musictoggle" src="../img/icon/ghostbunny.gif" onClick="togglePlay()">
 
-    <script>
-    var myAudio = document.getElementById("myAudio");
+      <script>
+      var myAudio = document.getElementById("myAudio");
 
-    function togglePlay() {
-      return myAudio.paused ? myAudio.play() : myAudio.pause();
-    };
+      function togglePlay() {
+        return myAudio.paused ? myAudio.play() : myAudio.pause();
+      };
 
-    </script>
+      </script>
 
+<body id="bodyid">
 
-    <div onclick="window.location='https://team-obsidian.github.io/rpgmaker2003/?game=yumenikki';" id="yumenikki">
-    </div>
-  </div>
+<!--  <div class="overlay"></div> -->
+  <div onclick="window.location='https://team-obsidian.github.io/rpgmaker2003/?game=yumenikki';" id="yumenikki"></div>
+
+  <div onclick="window.location='https://team-obsidian.github.io/rpgmaker2003/?game=off';" id="off"></div>
+
+  <div onclick="window.location='https://team-obsidian.github.io/rpgmaker2003/?game=ib';" id="ib"></div>
+
 </body>
+
+
+
 
 </html>

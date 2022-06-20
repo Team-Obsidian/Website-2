@@ -35,6 +35,15 @@ body {
   padding: 0;
   background-image: url("../img/background/deltarunebattlebg.gif");
   background-repeat: repeat;
+  background-attachment:scroll;
+  transition: background 0.2s;
+  z-index: 1;
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 p {
@@ -92,14 +101,17 @@ li a:hover {
   font-size: 48px;
 }
 
-.container {
+/*
+.overlay {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
   z-index: 2;
-  background: rgba(20, 50, 20, 0.2);
+  background: rgba(20, 50, 20, 0.5);
+  position:absolute;
 }
+*/
 
 #musictoggle {
   bottom: 10px;
@@ -110,7 +122,7 @@ li a:hover {
 
 
 #yumenikki {
-  z-index: 1;
+  z-index: 3;
   position: absolute;
   align-content: center;
   margin-top: 10vh;
@@ -135,6 +147,85 @@ li a:hover {
   background-repeat: no-repeat;
 }
 
+#off {
+  z-index: 3;
+  position: absolute;
+  align-content: center;
+  margin-top: 35vh;
+  margin-left: 10%;
+  width: 20%;
+  height: 20%;
+  border-radius: 40px;
+  transition: background 0.1s linear, color 0.5s;
+  cursor: pointer;
+  background-image: url("../img/icon/offlogo_transparent.png");
+  background-clip:border-box;
+  background-size: auto;
+  background-repeat:no-repeat;
+  background-position: center;
+  color: #FFFFFF;
+}
+
+#off:hover {
+  background-image: url("../img/background/tvstatic.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#off {
+  z-index: 3;
+  position: absolute;
+  align-content: center;
+  margin-top: 35vh;
+  margin-left: 10%;
+  width: 20%;
+  height: 20%;
+  border-radius: 40px;
+  transition: background 0.1s linear, color 0.5s;
+  cursor: pointer;
+  background-image: url("../img/icon/offlogo_transparent.png");
+  background-clip:border-box;
+  background-size: auto;
+  background-repeat:no-repeat;
+  background-position: center;
+  color: #FFFFFF;
+}
+
+#off:hover {
+  background-image: url("../img/background/tvstatic.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#ib {
+  z-index: 3;
+  position: absolute;
+  align-content: center;
+  margin-top: 45vh;
+  margin-left: 40%;
+  width: 20%;
+  height: 20%;
+  border-radius: 40px;
+  transition: background 0.1s linear, color 0.5s;
+  cursor: pointer;
+  background-image: url("../img/icon/iblogo.png");
+  background-clip:border-box;
+  background-size: auto;
+  background-repeat:no-repeat;
+  background-position: center;
+  color: #FFFFFF;
+}
+
+#ib:hover {
+  background-image: url("../img/icon/ibtitle.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*
+#yumenikki:hover + .overlay {
+  background-color: rgba(20, 20, 20, 0.1);
+}
+*/
 
 
 
