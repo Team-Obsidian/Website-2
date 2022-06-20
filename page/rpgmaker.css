@@ -101,17 +101,9 @@ li a:hover {
   font-size: 48px;
 }
 
-/*
-.overlay {
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  z-index: 2;
-  background: rgba(20, 50, 20, 0.5);
-  position:absolute;
-}
-*/
+
+
+
 
 #musictoggle {
   bottom: 10px;
@@ -146,6 +138,8 @@ li a:hover {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+
 
 #off {
   z-index: 3;
@@ -208,7 +202,7 @@ li a:hover {
   border-radius: 40px;
   transition: background 0.1s linear, color 0.5s;
   cursor: pointer;
-  background-image: url("../img/icon/iblogo.png");
+  background-image: url("../img/icon/iblogo_transparent.png");
   background-clip:border-box;
   background-size: auto;
   background-repeat:no-repeat;
@@ -217,9 +211,11 @@ li a:hover {
 }
 
 #ib:hover {
-  background-image: url("../img/icon/ibtitle.gif");
+  background-image: url("../img/icon/ibrain.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
 }
 /*
 #yumenikki:hover + .overlay {
