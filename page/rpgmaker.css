@@ -217,6 +217,7 @@ li a:hover {
   background-size: auto;
 }
 
+/*
 #grimmshollow {
   z-index: 3;
   position: absolute;
@@ -266,11 +267,8 @@ li a:hover {
   background-size: cover;
   background-repeat: no-repeat;
 }
-/*
-#yumenikki:hover + .overlay {
-  background-color: rgba(20, 20, 20, 0.1);
-}
 */
+
 
 
 
