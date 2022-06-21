@@ -136,6 +136,8 @@ span {
   background-clip: border-box;
   float:left;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
 
 }
@@ -177,6 +179,10 @@ span {
   padding: 2% 10%;
 
 
+}
+
+#embeddrive {
+  align-self: center;
 }
 
 .blueoverlay {
