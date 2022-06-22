@@ -33,10 +33,9 @@ h1, h2 {
 body {
   margin: 0;
   padding: 0;
-  background-image: url("../img/background/deltarunebattlebg.gif");
+  background-image: url("../img/background/bg6.png");
   background-repeat: repeat;
-  background-attachment:scroll;
-  transition: background 0.2s;
+  background-attachment:fixed;
   z-index: 1;
   overflow-y:scroll;
   overflow-x:hidden;
@@ -140,6 +139,24 @@ li a:hover {
 }
 
 
+#yumenikki:hover + #yumenikki_content {
+  width: 50vw;
+  opacity: 1;
+}
+
+#yumenikki_content {
+  width: 0;
+  height: 100vh;
+  align-content: center;
+  position: absolute;
+  opacity: 0;
+  background-image: url("../img/background/deltarunebattlebg.gif");
+  background-repeat: repeat;
+  z-index: 5;
+  margin: 0;
+  transition: width 2s, opacity 0.5s;
+}
+
 #off {
   z-index: 3;
   position: absolute;
@@ -160,34 +177,28 @@ li a:hover {
 }
 
 #off:hover {
-  background-image: url("../img/background/tvstatic.gif");
+  background-image: url("../img/sorry.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#off {
-  z-index: 3;
-  position: absolute;
+#off:hover + #off_content {
+  width: 50vw;
+  opacity: 1;
+}
+
+#off_content {
+  width: 0;
+  height: 100vh;
   align-content: center;
-  margin-top: 25vh;
-  margin-left: 10%;
-  width: 20%;
-  height: 20%;
-  border-radius: 40px;
-  transition: background 0.1s linear, color 0.5s;
-  cursor: pointer;
-  background-image: url("../img/icon/offlogo_transparent.png");
-  background-clip:border-box;
-  background-size: auto;
-  background-repeat:no-repeat;
-  background-position: center;
-  color: #FFFFFF;
-}
-
-#off:hover {
-  background-image: url("../img/background/tvstatic.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: absolute;
+  opacity: 0;
+  background-image: url("../img/background/deltarunebattlebg.gif");
+  background-repeat: repeat;
+  z-index: 5;
+  margin: 0;
+  transition: width 2s, opacity 0.5s;
+  right: 0;
 }
 
 #ib {
@@ -268,6 +279,7 @@ li a:hover {
   background-repeat: no-repeat;
 }
 */
+
 
 
 
