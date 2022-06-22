@@ -33,10 +33,20 @@ body {
   padding: 0;
 }
 
-
 p {
-  text-align: center;
   font-size: 32px;
+}
+
+p:not(.left) {
+  text-align: center;
+}
+
+a:not(.white):active {
+  color: yellow;
+}
+
+a:not(.white) {
+  color: turquoise;
 }
 
 ul {
@@ -173,7 +183,6 @@ span {
 }
 
 .content {
-  text-align: center;
   border-radius: 30px;
   margin: 5% 10%;
   padding: 2% 10%;
@@ -201,4 +210,34 @@ span {
 
 .small {
   font-size: 24px;
+}
+
+#changelog_toggle:checked + #changelog_content {
+  width: 60vw;
+  opacity: 1;
+}
+
+#changelog_content {
+  width: 0;
+  height: 100vh;
+  position: absolute;
+  opacity: 0;
+  background-image: url("img/background/deltarunebattlebg.gif");
+  background-repeat: repeat;
+  z-index: 5;
+  margin: 0;
+  transition: width 2s, opacity 0.5s;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#changelog_content::-webkit-scrollbar {
+  display: none;
+}
+
+hr {
+  border: 2px dashed white;
+
 }
