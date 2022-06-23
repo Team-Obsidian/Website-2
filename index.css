@@ -18,6 +18,16 @@
   font-display: swap;
 }
 
+@font-face {
+    font-family: 'terminus_ttfbold';
+    src: url('font/terminusttf-bold-webfont.woff2') format('woff2'),
+         url('font/terminusttf-bold-webfont.woff') format('woff'),
+         url('font/terminusttf-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html {
   cursor: url("img/icon/Hand-Arrow.cur"), default;
   overflow: hidden;
@@ -85,6 +95,10 @@ li a:hover {
 
 .apple {
   font-family: Apple Kid;
+}
+
+.oneshot {
+  font-family: terminus_ttfbold;
 }
 
 
@@ -211,6 +225,8 @@ span {
 .small {
   font-size: 24px;
 }
+
+
 
 #changelog_toggle:checked + #changelog_content {
   width: 60vw;
