@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'Apple Kid';
+    src: url('../font/Apple-Kid.eot');
+    src: url('../font/Apple-Kid.eot?#iefix') format('embedded-opentype'),
+        url('../font/Apple-Kid.woff2') format('woff2'),
+        url('../font/Apple-Kid.woff') format('woff'),
+        url('../font/Apple-Kid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'renogare';
+  src: url('../font/renogare.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  cursor: url("../img/icon/Hand-Arrow.cur"), default;
+  overflow: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+  font-size: 48px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 32px;
+}
+
+p:not(.left) {
+  text-align: center;
+}
+
+a:not(.white):active {
+  color: yellow;
+}
+
+a:not(.white) {
+  color: turquoise;
+}
+
+ul {
+  list-style-type: none;
+  overflow: hidden;
+  position: fixed;
+  top:0;
+  width: 100%;
+  background-color: #2F4C39;
+  margin: 0;
+  z-index: 100;
+}
+
+li {
+  float: left;
+  border-right: 2px solid #bbb;
+  margin-right: 5px;
+  font-size: 24px;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.reno {
+  font-family: renogare;
+}
+
+.apple {
+  font-family: Apple Kid;
+}
+
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.main {
+  width: 50vw;
+  height: 100vh;
+  background-image: url("../img/background/oneshot_refuge.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-clip: border-box;
+  float:left;
+
+
+
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.secondary {
+    width: 50vw;
+    height: 100vh;
+    background-image: url("../img/background/background2.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    background-clip: border-box;
+    float: right;
+    margin: 0;
+    border: 0;
+  }
+
+  .secondary::-webkit-scrollbar {
+    display: none;
+  }
+
+/*
+#musictoggle {
+  bottom: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.content {
+  border-radius: 30px;
+  margin: 5% 10%;
+  padding: 2% 10%;
+
+
+}
+
+
+
+.blueoverlay {
+  background: rgba(112, 128, 144, 0.3);
+}
+
+.redoverlay {
+  background: rgba(144, 128, 112, 0.5);
+}
+
+.title {
+  margin: 10vh auto;
+}
+
+*/
+
+.big {
+  font-size: 48px;
+}
+
+.small {
+  font-size: 24px;
+}
+
+#changelog_toggle:checked + #changelog_content {
+  width: 60vw;
+  opacity: 1;
+}
+
+#changelog_content {
+  width: 0;
+  height: 100vh;
+  position: absolute;
+  opacity: 0;
+  background-image: url("img/background/deltarunebattlebg.gif");
+  background-repeat: repeat;
+  z-index: 5;
+  margin: 0;
+  transition: width 2s, opacity 0.5s;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#changelog_content::-webkit-scrollbar {
+  display: none;
+}
+
+hr {
+  border: 2px dashed white;
+
+}
