@@ -178,9 +178,9 @@ li a:hover {
 }
 
 #off:hover {
-  background-image: url("../img/sorry.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("../img/icon/offzone1.gif");
+  background-size: 70% 100%;
+  background-repeat: repeat-x;
 }
 
 #off:hover + #off_content {
