@@ -10,15 +10,43 @@
 <p>howler js test, sorry but the other features were removed since this page is for testing</p>
   <script language="javascript" src="howler.js"></script>
   <script>
+
+    var list = [
+    '../sound/hipshop.mp3',
+    '../sound/kirbyapartment.mp3',
+    '../miimaker3ds.mp3'
+]
+
+var i=0;
+
+function skip() {
+  i++;
+  console.log("i is "+i);
+}
+
+function autoplay(i, list) {
     var sound = new Howl({
-      src: ['../sound/dsishop.mp3'],
-      format: ['mp3'],
-      html5: true,
-      autoplay: true,
-      loop: true,
-      volume: 0.8
-    });play();
+        src: [list[i]],
+        preload: true,
+        autoplay
+        onend: function () {
+            if ((i + 1) == list.length) {
+                autoplay(0, list)
+            } else {
+                autoplay(i + 1, list)
+            }
+        }
+    })
+    sound.play();
+}
+
+autoplay(0, list)
+
+
   </script>
+
+<img src="../img/icon/forestbunny.gif" onclick="sound.play()">
+<img src="../img/icon/dustbunny.gif" onclick="skip()">
 
 <!--
 </head>
