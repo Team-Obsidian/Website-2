@@ -10,31 +10,17 @@
 <p>howler js test, sorry but the other features were removed since this page is for testing</p>
   <script language="javascript" src="howler.js"></script>
   <script>
-
-/*  var sound = new Howl({
-    src: ['../sound/dsishop.mp3'],
-    format: ['mp3'],
-    html5: true,
-    autoplay: true,
-    loop: true,
-    volume: 0.8
-  });play();
-*/
+  <script>
     var list = [
+    '../sound/uwasotemperate.mp3',
     '../sound/hipshop.mp3',
-    '../sound/kirbyapartment.mp3',
-    '../miimaker3ds.mp3'
+    '../sound/wiisportstutorial.mp3'
 ]
-
+//duration()
 var i=0;
 
-function skip() {
-  i++;
-  console.log("i is "+i);
-}
-
 function autoplay(i, list) {
-    var sound = new Howl({
+    this.howl = new Howl({
         src: [list[i]],
         preload: true,
         onend: function () {
@@ -45,16 +31,47 @@ function autoplay(i, list) {
             }
         }
     })
-    sound.play();
 }
 
-autoplay(0, list)
+function skip() {
+
+    const sound = this.howl.pause()._sounds[0];
+    const currentSeek = sound._seek;
+    const forwardTo = this.howl.duration()-0.01;
+    console.log('skipping to ' + forwardTo + ' from ' + currentSeek);
+    this.howl.seek(forwardTo);
+    this.howl.play();
+    }
+
+function shuffle() {
+  this.howl.pause();
+  autoplay(randomnum(), list);
+}
+
+function randomnum() {
+  console.log(list.length);
+  return Math.floor(Math.random() * list.length);
+}
+
+
+function audiotoggle() {
+  if (this.howl.playing()==true) {
+    this.howl.pause()
+  } else {
+    this.howl.play()
+  }
+}
+
+autoplay(0, list);
 
 
   </script>
 
-<img src="../img/icon/forestbunny.gif" onclick="sound.play()">
-<img src="../img/icon/dustbunny.gif" onclick="skip();">
+<img src="../img/icon/forestbunny.gif" onclick="shuffle()">
+<img src="../img/icon/dustbunny.gif" onclick="skip()">
+<img src="../img/icon/forestbunny.gif" onclick="audiotoggle()">
+
+</html>
 
 <!--
 </head>
