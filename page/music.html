@@ -37,7 +37,6 @@ function autoplay(i, list) {
     var sound = new Howl({
         src: [list[i]],
         preload: true,
-        autoplay
         onend: function () {
             if ((i + 1) == list.length) {
                 autoplay(0, list)
