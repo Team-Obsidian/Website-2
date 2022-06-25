@@ -8,7 +8,7 @@
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
 
 <p>welcome to the music testing page</p>
-<p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[41 songs]</p>
+<p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[40 songs]</p>
 <p>you could call it this website's UST(Unoriginal Sountrack)</p>
   <script language="javascript" src="howler.js"></script>
   <script>
@@ -62,6 +62,7 @@ function autoplay(i, list) {
     this.howl = new Howl({
         src: [list[i]],
         preload: true,
+        autoplay: true,
         onend: function () {
             if ((i + 1) == list.length) {
                 autoplay(0, list)
@@ -85,6 +86,7 @@ function skip() {
 function shuffle() {
   this.howl.pause();
   autoplay(randomnum(), list);
+  this.howl.play();
 }
 
 function randomnum() {
@@ -108,9 +110,8 @@ autoplay(0, list);
 
 <img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
 <img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
-<img src="../img/icon/forestbunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p
+<img src="../img/icon/forestbunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
 
-</html>
 
 <!--
 </head>

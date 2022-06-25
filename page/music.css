@@ -37,6 +37,7 @@ body {
 
 p {
   font-size: 32px;
+  font-family: Apple Kid;
 }
 
 p:not(.left) {
