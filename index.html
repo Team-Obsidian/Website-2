@@ -27,7 +27,7 @@
   <nav>
     <label for="touch"><span>To do:</span></label>
     <input type="checkbox" id="touch">
-    <div class="slide"><p class="black oneshot"> Music | Web | Games/HTML5 | More RPGMaker | Home page content(look more like a website and less like a test page) | Background Music Selection | Chat App </p></div>
+    <div class="slide"><p class="black apple"> Music | Web | Games/HTML5 | More RPGMaker | Home page content(look more like a website and less like a test page) | Background Music Selection | Chat App </p></div>
   </nav>
 <div>
 
@@ -39,8 +39,8 @@
       <p class="white reno">Greetings!</p>
       <div class="white apple">
         <p><em><u>Stephen's Notes</u></em>:</p>
-        <p>Welcome to [WEBSITE] run by Stephen and Lauren. If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
-        <p>I am this website's programmer and main developer while Lauren is the designer responsible for all of the UI you're seeing right now(courtesy to her mom for Lauren's lack of availability and technological exposure).<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
+        <p>Welcome to [WEBSITE] run by Stephen, Lauren, and Aditya. If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
+        <p>I am this website's programmer and main developer while Lauren is the designer responsible for all of the UI you're seeing right now(courtesy to her mom for Lauren's lack of availability and technological exposure). Aditya is also here as a beta tester.<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
         <p class="small"><em>Color theory is hard... help!</em></p>
       </div>
       <div class="white oneshot">
@@ -63,7 +63,41 @@
   };
 
   </script>
+<!--
 
+  <script>
+
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+
+  localStorage.setItem('myFirstKey', 'myFirstValue');
+  console.log(localStorage.getItem('myFirstKey'));
+
+  function set1 () {
+    localStorage.test = 'left';
+  }
+
+  function set2 () {
+    localStorage.test = 'right';
+  }
+
+  function defaulty2 () {
+    localStorage.test = 'default';
+  }
+
+  function displaytest () {
+    console.log(localStorage.test)
+  }
+
+  defaulty2();
+  </script>
+
+  <button type="button" onclick="set1()">Set Left</button>
+  <button type="button" onclick="set2()">Set Right</button>
+  <button type="button" onclick="displaytest()">Check Console</button>
+-->
   </div>
 
   <div class="secondary">
