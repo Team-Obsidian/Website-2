@@ -26,7 +26,7 @@
     '../sound/goodforhealth.mp3',
     '../sound/hipshop.mp3',
     '../sound/kirbyapartment.mp3',
-    '../sound/lastrestort.mp3',
+    '../sound/lastresort.mp3',
     '../sound/letsgettogethernow.mp3',
     '../sound/librarystroll.mp3',
     '../sound/miieditorwiiu.mp3',
@@ -105,14 +105,41 @@ function audiotoggle() {
 
 autoplay(0, list);
 
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
 
+localStorage.setItem('myFirstKey', 'myFirstValue');
+console.log(localStorage.getItem('myFirstKey'));
+
+function set1 () {
+  localStorage.test = 'left';
+}
+
+function set2 () {
+  localStorage.test = 'right';
+}
+
+function defaulty2 () {
+  localStorage.test = 'default';
+}
+
+function displaytest () {
+  console.log(localStorage.test)
+}
+
+defaulty2();
   </script>
 
 <img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
 <img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
 <img src="../img/icon/forestbunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
 
-
+<button type="button" onclick="set1()">Set Left</button>
+<button type="button" onclick="set2()">Set Right</button>
+<button type="button" onclick="displaytest()">Check Console</button>
+<button type="button" onclick>
 <!--
 </head>
       <ul class="navbar">
