@@ -61,32 +61,25 @@
     '../sound/welcometotheworldofpokemon.mp3',
     '../sound/whitespace.mp3',
     '../sound/wiishop.mp3',
-    '../sound/wiisportstutorial.mp3',
-]
+    '../sound/wiisportstutorial.mp3',]
 var i=0;
-let savemusic = document.getElementById("navbar");
 
-navbar.addEventListener("mouseenter", function(event) {
-
-  sessionStorage.setItem("tracknum", i);
-  sessionStorage.setItem("tracktime", this.howl.seek());
-  sessionStorage.setItem("playing", this.howl.playing());
-
-
-
-},);
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-}
-
-localStorage.setItem('myFirstKey', 'myFirstValue');
-console.log(localStorage.getItem('myFirstKey'));
-
-var isPlaying = sessionStorage.getItem("playing");
-
-
+this.howl = new Howl({
+    src: [list[i]],
+    preload: true,
+    autoplay: isPlaying,
+    onend: function () {
+      while (true) {
+        if ((i + 1) >= list.length) {
+            i=0;
+        } else {
+            i++;
+        }
+        this.howl.play();
+      }
+    }
+});
+/*
 function autoplay(i, list, isPlaying) {
     this.howl = new Howl({
         src: [list[i]],
@@ -100,7 +93,23 @@ function autoplay(i, list, isPlaying) {
             }
         }
     })
-}
+} */
+
+let savemusic = document.getElementById("navbar");
+
+navbar.addEventListener("mouseenter", function(event) {
+
+  if (this.howl==null) return;
+  
+  sessionStorage.setItem("tracknum", i);
+  sessionStorage.setItem("tracktime", this.howl.seek());
+  sessionStorage.setItem("playing", this.howl.playing());
+},);
+
+if (sessionStorage.getItem("playing")=="undefined") {
+  var isPlaying = "false"
+} else { var isPlaying = sessionStorage.getItem("playing"); }
+
 
 function skip() {
 
@@ -132,7 +141,6 @@ function audiotoggle() {
   }
 }
 
-autoplay(0, list);
 
 
 
