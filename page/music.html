@@ -4,16 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Music</title>
-  <link href="../index.css" rel="stylesheet">
+  <link href="music.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
-
-
-  <ul class="navbar white reno" id="navbar">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="games.html">Games</a></li>
-    <li><a href="music.html">Music</a></li>
-    <li><a href="#">Misc</a></li>
-  </ul>
 
 <p>welcome to the music testing page</p>
 <p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[40 songs]</p>
@@ -63,35 +55,14 @@
     '../sound/wiishop.mp3',
     '../sound/wiisportstutorial.mp3',
 ]
+//duration()
 var i=0;
-let savemusic = document.getElementById("navbar");
 
-navbar.addEventListener("mouseenter", function(event) {
-
-  sessionStorage.setItem("tracknum", i);
-  sessionStorage.setItem("tracktime", this.howl.seek());
-  sessionStorage.setItem("playing", this.howl.playing());
-
-
-
-},);
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  var LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./scratch');
-}
-
-localStorage.setItem('myFirstKey', 'myFirstValue');
-console.log(localStorage.getItem('myFirstKey'));
-
-var isPlaying = sessionStorage.getItem("playing");
-
-
-function autoplay(i, list, isPlaying) {
+function autoplay(i, list) {
     this.howl = new Howl({
         src: [list[i]],
         preload: true,
-        autoplay: isPlaying,
+        autoplay: true,
         onend: function () {
             if ((i + 1) == list.length) {
                 autoplay(0, list)
@@ -134,9 +105,13 @@ function audiotoggle() {
 
 autoplay(0, list);
 
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
 
-
-
+localStorage.setItem('myFirstKey', 'myFirstValue');
+console.log(localStorage.getItem('myFirstKey'));
 
 function set1 () {
   localStorage.test = 'left';
@@ -155,13 +130,11 @@ function displaytest () {
 }
 
 defaulty2();
-</script>
+  </script>
 
-<div class="musicicon">
-  <img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
-  <img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
-  <img src="../img/icon/cupcakebunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
-</div>
+<img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
+<img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
+<img src="../img/icon/forestbunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
 
 <button type="button" onclick="set1()">Set Left</button>
 <button type="button" onclick="set2()">Set Right</button>
