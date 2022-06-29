@@ -100,7 +100,7 @@ let savemusic = document.getElementById("navbar");
 navbar.addEventListener("mouseenter", function(event) {
 
   if (this.howl==null) return;
-  
+
   sessionStorage.setItem("tracknum", i);
   sessionStorage.setItem("tracktime", this.howl.seek());
   sessionStorage.setItem("playing", this.howl.playing());

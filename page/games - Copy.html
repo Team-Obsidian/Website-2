@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games</title>
+  <link href="games.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
+</head>
+      <ul>
+        <li><a class="white reno" href="../index.html">Home</a></li>
+        <li><a class="white reno" href="games.html">Games</a></li>
+        <li><a class="white reno" href="#">Music</a></li>
+        <li><a class="white reno" href="#">Misc</a></li>
+      </ul>
+
+<body class="container">
+
+    <audio id="myAudio" src="../sound/splatoon1tutorial.mp3" preload="auto" autoplay loop >
+    </audio>
+    <img id="musictoggle" src="../img/icon/spacebunny.gif" onClick="togglePlay()">
+
+  <script>
+  var myAudio = document.getElementById("myAudio");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+  };
+
+  </script>
+
+    <video width"1920" height="1200" autoplay muted loop id="myVideo">
+      <source src="../img/background/pmd_background.mp4" type="video/mp4">
+      Test
+    </video>
+
+  <div onclick="window.location='https://team-obsidian.github.io';" id="emulators">
+      <h1 class="reno">Emulators</h1>
+  </div>
+  <div onclick="location.href='rpgmaker.html';" id="rpgmaker">
+      <h1 class="reno">RPGMaker 2003</h1>
+  </div>
+  <div onclick="location.href='web_game.html';" id="web_game">
+      <h1 class="reno">HTML5 / Other</h1>
+  </div>
+</body>
+
+</html>
