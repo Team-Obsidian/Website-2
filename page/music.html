@@ -65,9 +65,13 @@ function autoplay(i, list) {
         autoplay: true,
         onend: function () {
             if ((i + 1) == list.length) {
+                i == 0
                 autoplay(0, list)
+                console.log(i)
             } else {
-                autoplay(i + 1, list)
+                i += 1
+                autoplay(i, list)
+                console.log(i)
             }
         }
     })
@@ -90,7 +94,6 @@ function shuffle() {
 }
 
 function randomnum() {
-  console.log(list.length);
   return Math.floor(Math.random() * list.length);
 }
 
@@ -114,19 +117,26 @@ localStorage.setItem('myFirstKey', 'myFirstValue');
 console.log(localStorage.getItem('myFirstKey'));
 
 function set1 () {
-  localStorage.test = 'left';
+  sessionStorage.test = 'left';
 }
 
 function set2 () {
-  localStorage.test = 'right';
+  sessionStorage.test = 'right';
 }
 
 function defaulty2 () {
-  localStorage.test = 'default';
+  sessionStorage.test = 'default';
 }
 
-function displaytest () {
-  console.log(localStorage.test)
+function displaytesttest () {
+  console.log(sessionStorage.test)
+}
+
+function savesong () {
+  sessionStorage.songnum = i;
+  sessionStorage.songscan = this.howl.seek();
+  console.log(sessionStorage.songnum);
+  console.log(sessionStorage.songscan);
 }
 
 defaulty2();
@@ -138,8 +148,8 @@ defaulty2();
 
 <button type="button" onclick="set1()">Set Left</button>
 <button type="button" onclick="set2()">Set Right</button>
-<button type="button" onclick="displaytest()">Check Console</button>
-<button type="button" onclick>
+<button type="button" onclick="displaytesttest()">Check Console</button>
+<button type="button" onclick="savesong()">Save song and display</button>
 <!--
 </head>
       <ul class="navbar">
