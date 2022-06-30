@@ -4,9 +4,10 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Music</title>
-  <link href="music.css" rel="stylesheet">
+  <link href="../index.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
-
+<body>
+  <div id="musicbackground" class="big apple">
 <p>welcome to the music testing page</p>
 <p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[40 songs]</p>
 <p>you could call it this website's UST(Unoriginal Sountrack)</p>
@@ -58,7 +59,8 @@
 //duration()
 var i=0;
 
-function autoplay(i, list) {
+function autoplay(i_, list) {
+    i = i_;
     this.howl = new Howl({
         src: [list[i]],
         preload: true,
@@ -66,12 +68,12 @@ function autoplay(i, list) {
         onend: function () {
             if ((i + 1) == list.length) {
                 i == 0
-                autoplay(0, list)
-                console.log(i)
+                autoplay(0, list);
+                console.log(i);
             } else {
-                i += 1
-                autoplay(i, list)
-                console.log(i)
+                i += 1;
+                autoplay(i, list);
+                console.log(i);
             }
         }
     })
@@ -150,6 +152,7 @@ defaulty2();
 <button type="button" onclick="set2()">Set Right</button>
 <button type="button" onclick="displaytesttest()">Check Console</button>
 <button type="button" onclick="savesong()">Save song and display</button>
+</div>
 <!--
 </head>
       <ul class="navbar">
@@ -191,5 +194,5 @@ defaulty2();
 
   </div>
 -->
-
+</body>
 </html>

@@ -32,10 +32,14 @@
 <body>
 
   <div id="titlescreen">
+    <!--
     <p class="white reno">Welcome to the website! This is a test title page for the website so it's of course not finished yet.</p>
     <p class="white reno">It's later needed for cookies or localStorage so enjoy the placeholder. Think of something like the Omori game webpage intro or the Celeste Everest title page. Maybe something like animal crossing now that I think of it.</p>
-    <p class="white reno">I keep forgetting how good all Persona game UIs are.</p>
-    <button type="button">Some button text is right here. Click here to remove the overlay and get to your regularly unscheduled game review website? I think?</button>
+    <p class="white reno">I keep forgetting how good all Persona game UIs are.</p> -->
+    <p class="white reno">Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].</p>
+    <p class="white reno">This brainchild of a website was created by Stephen but also Lauren who tried very hard to help out. With any concerns or questions, reach out to us at any time(we have more free time than you could ever imagine)!
+    <p class="white big apple">Have fun exploring!</p>
+    <button type="button" onclick="welcometestpage()">Some button text is right here. Click here to remove the overlay and get to your regularly unscheduled game review website? I think?</button>
   </div>
 
         <ul class="navbar white reno">
@@ -68,13 +72,20 @@
   <img id="musictoggle" src="img/icon/bugbunny.webp" onClick="togglePlay()">
 
   <script>
+
+
   var myAudio = document.getElementById("myAudio");
 
   function togglePlay() {
     return myAudio.paused ? myAudio.play() : myAudio.pause();
   };
 
-  function welcometestpage () {}
+  function welcometestpage () {
+    document.getElementById("titlescreen").style["opacity"] = "0";
+    setTimeout(function() {
+        document.getElementById("titlescreen").style.display = 'none';
+    }, 2000);
+  };
 
   </script>
 
@@ -129,7 +140,7 @@
         <p>Toggle here to check out the change logs</p><input type="checkbox" id="changelog_toggle">
         <div id="changelog_content">
 
-<hr><br><br><br><hr>
+<hr><p class="big">Changelogs</p><hr>
           <p>6/22/22 5:18PM<br>Version 0.0.2 <br>Prealpha</p>
             <p>Not much changes since I'm new to this but I'll slowly make progress one feature at a time.</p>
           <hr>
