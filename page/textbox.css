@@ -1,0 +1,30 @@
+.textboximg {
+  align-self: center;
+  background-image:url("../face/textboximage.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 126px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.dialogue {
+  float: left;
+  width: 80%;
+  margin-left: 3%;
+  color: white;
+  position:relative;
+}
+
+.portrait {
+  float: right;
+  bottom: 6%;
+  right: 2%;
+  width: 96px;
+  height: 96px;
+  position: absolute;
+}
