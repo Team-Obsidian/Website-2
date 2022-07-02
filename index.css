@@ -297,7 +297,7 @@ hr {
 #musiccontent {
   z-index: 5;
   overflow-y: scroll;
-  background-image: url("../img/background/snow.webp");
+  background-image: url("img/background/snow.webp");
   background-attachment: fixed;
   background-position: center;
   background-clip: border-box;
