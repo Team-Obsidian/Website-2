@@ -8,9 +8,20 @@
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
 <body>
   <div id="musicbackground" class="big apple">
+    <ul class="navbar white reno">
+      <li><a class="" href="../index.html">Home</a></li>
+      <li><a class="" href="games.html">Games</a></li>
+      <li><a class="" href="music.html">Music</a></li>
+      <li><a class="" href="#">Misc</a></li>
+    </ul>
+  </div>
+
+    <div id="musiccontent" class="black apple">
+<br><br><br><br><br><br>
 <p>welcome to the music testing page</p>
 <p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[40 songs]</p>
 <p>you could call it this website's UST(Unoriginal Sountrack)</p>
+<p id="displaysong">Test list</p>
   <script language="javascript" src="howler.js"></script>
   <script>
     var list = [
@@ -67,13 +78,16 @@ function autoplay(i_, list) {
         autoplay: true,
         onend: function () {
             if ((i + 1) == list.length) {
-                i == 0
+                i == 0;
                 autoplay(0, list);
                 console.log(i);
+                document.getElementById("displaysong").innerHTML = [list[i]].substring(9);
             } else {
                 i += 1;
                 autoplay(i, list);
                 console.log(i);
+                document.getElementById("displaysong").innerHTML = [list[i]].substring(9);
+                console.log([list[i]].substring(9));
             }
         }
     })
@@ -148,10 +162,13 @@ defaulty2();
 <img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
 <img src="../img/icon/forestbunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
 
+
+<!--
 <button type="button" onclick="set1()">Set Left</button>
 <button type="button" onclick="set2()">Set Right</button>
 <button type="button" onclick="displaytesttest()">Check Console</button>
 <button type="button" onclick="savesong()">Save song and display</button>
+-->
 </div>
 <!--
 </head>
