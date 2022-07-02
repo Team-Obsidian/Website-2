@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attempt 2!</title>
+  <link href="index.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="img/icon/Favicon.png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZCESLFE1R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2ZCESLFE1R');
+  </script>
+</head>
+
+
+<!--
+<div id="todo">
+  <nav>
+    <label for="touch"><span>To do:</span></label>
+    <input type="checkbox" id="touch">
+    <div class="slide"><p class="black apple"> Music | Web | Games/HTML5 | More RPGMaker | Home page content(look more like a website and less like a test page) | Background Music Selection | Chat App </p></div>
+  </nav>
+<div>
+-->
+
+
+<body>
+
+  <div id="titlescreen">
+    <!--
+    <p class="white reno">Welcome to the website! This is a test title page for the website so it's of course not finished yet.</p>
+    <p class="white reno">It's later needed for cookies or localStorage so enjoy the placeholder. Think of something like the Omori game webpage intro or the Celeste Everest title page. Maybe something like animal crossing now that I think of it.</p>
+    <p class="white reno">I keep forgetting how good all Persona game UIs are.</p> -->
+    <p class="white reno">Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].</p>
+    <p class="white reno">This brainchild of a website was created by Stephen but also Lauren who tried very hard to help out. With any concerns or questions, reach out to us at any time(we have more free time than you could ever imagine)!
+    <p class="white big apple">Have fun exploring!</p>
+    <button type="button" onclick="welcometestpage()">Some button text is right here. Click here to remove the overlay and get to your regularly unscheduled game review website? I think?</button>
+  </div>
+
+        <ul class="navbar white reno">
+          <li><a class="" href="index.html">Home</a></li>
+          <li><a class="" href="page/games.html">Games</a></li>
+          <li><a class="" href="page/music.html">Music</a></li>
+          <li><a class="" href="#">Misc</a></li>
+        </ul>
+
+  <div class="main">
+    <p class="white reno title big">[WEBSITE] Home</p>
+    <div class="content blueoverlay">
+      <p class="white reno">Greetings!</p>
+      <div class="white apple">
+        <p><em><u>Stephen's Notes</u></em>:</p>
+        <p>Welcome to [WEBSITE] run by Stephen, Lauren, and Aditya. If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
+        <p>I am this website's programmer and main developer while Lauren is the designer responsible for all of the UI you're seeing right now(courtesy to her mom for Lauren's lack of availability and technological exposure). Aditya is also here as a beta tester.<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
+        <p class="small"><em>Color theory is hard... help!</em></p>
+      </div>
+      <div class="white oneshot">
+        <p><em><u>Lauren's Note</u></em>:</p>
+        <p>Just a person who's trying to be somewhat helpful.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <audio id="myAudio" src="sound/letsgettogethernow.mp3" autoplay preload="auto" loop >
+  </audio>
+  <img id="musictoggle" src="img/icon/bugbunny.webp" onClick="togglePlay()">
+
+  <script>
+
+
+  var myAudio = document.getElementById("myAudio");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+  };
+
+  function welcometestpage () {
+    document.getElementById("titlescreen").style["opacity"] = "0";
+    setTimeout(function() {
+        document.getElementById("titlescreen").style.display = 'none';
+    }, 2000);
+  };
+
+  </script>
+
+
+<!--
+
+  <script>
+
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+
+  localStorage.setItem('myFirstKey', 'myFirstValue');
+  console.log(localStorage.getItem('myFirstKey'));
+
+  function set1 () {
+    localStorage.test = 'left';
+  }
+
+  function set2 () {
+    localStorage.test = 'right';
+  }
+
+  function defaulty2 () {
+    localStorage.test = 'default';
+  }
+
+  function displaytest () {
+    console.log(localStorage.test)
+  }
+
+  defaulty2();
+  </script>
+
+  <button type="button" onclick="set1()">Set Left</button>
+  <button type="button" onclick="set2()">Set Right</button>
+  <button type="button" onclick="displaytest()">Check Console</button>
+-->
+  </div>
+
+  <div class="secondary">
+    <p class="white reno title big">Notes and Patchnotes</p>
+    <div class="content redoverlay">
+      <div class="white apple">
+        <p>Note: Music, Misc, and HTML5/Web from the Games section are dead links or don't lead to anywhere. </p>
+        <p>Bunnies are your friend. They control the music.</p>
+        <p>If it doesn't automatically start playing, then you have entered the website by typing in the link instead of navigating from somewhere else(something I need to fix so it works all of the time).</p>
+        <p>Pages scroll even if you can't see a scrollbar(only this page right now)</p>
+        <p><a href="https://github.com/Team-Obsidian/website-2/commits/main">Here are the github commits</a> if you are interested in the code changes</p>
+        <p>You'll also need your own files to play on the emulator which you can source from <a href="https://drive.google.com/drive/folders/1bsiXGznONNBy4HZklbyl2bq-DLqsNql_?usp=sharing">here</a>. NDS and N64 perform badly.
+        <p>Toggle here to check out the change logs</p><input type="checkbox" id="changelog_toggle">
+        <div id="changelog_content">
+
+<hr><p class="big">Changelogs</p><hr>
+          <p>6/22/22 5:18PM<br>Version 0.0.2 <br>Prealpha</p>
+            <p>Not much changes since I'm new to this but I'll slowly make progress one feature at a time.</p>
+          <hr>
+            <p>-Include changelogs on the home page that can toggle a slide in page</p>
+            <p>-Include test descriptions for the different RPGMaker Games by hovering and changed a few backgrounds</p>
+            <p>-Modified home page introduction text and shortened notes text</p>
+            <p>-Changed colors of links to turquoise by default and yellow when active</p>
+          <hr>
+
+
+          <p>6/20/22 10:32PM<br>Version 0.0.1 <br>Prealpha</p>
+            <p> As it's the start of the website, there's nothing here to really say besides have fun with the base features.</p>
+          <hr>
+            <p> -Home page including 2 sides and a introduction as well as some notes.</p>
+            <p> -Navigation bar layout for the 4 main website categories</p>
+            <p> -Games page with an animated background, 2 working links and a dead link to an emulator, RPGMaker page, and HTML page respectively.</p>
+            <p> -RPGMaker page that contains working links to Yume Nikki, Off, and Ib with a changing background when hovering.</p>
+            <p> -Basic automatic music player for each page indicated with a bunny sprite</p>
+          <hr>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+</html>
