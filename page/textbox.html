@@ -14,38 +14,87 @@
   <button onclick="typeWriter()">Click me</button>
 
 
-
   <script>
+  var portraitlist = [
+    '../face/herosprites/neutralH.gif',
+    '../face/herosprites/talkH.png',
+    '../face/nikosprites/Niko_smile_arm.webp',
+    '../face/nikosprites/Niko_speak.webp',
+    '../face/herosprites/happyH.gif',
+    '../face/herosprites/neutralH.png',
+    '../face/herosprites/talkH.png',
+    '../face/herosprites/injuredH.gif',
+    '../face/herosprites/injuredH.gif',
+    '../face/herosprites/talkH.png',
+    '../face/nikosprites/Niko.webp',
+    '../face/herosprites/nervousH.png',
+    '../face/nikosprites/Niko5.webp',
+    '../face/nikosprites/Niko6.webp',
+    '../face/nikosprites/Niko_wtf2.webp',
+    '../face/herosprites/nervousH.png',
+    '../face/herosprites/panickedH.png',
+    '../face/herosprites/happyH.gif',
+    '../face/nikosprites/Niko_smile_arm.webp'
+  ];
+
+  var dialoguelist = [
+    "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+    "Originally meant to be a small summer project, this brainchild of a website was created by me, Aster...",
+    "...and me, Ren!",
+    "I'm the website's designer and beta tester! Although I don't get as many opportunities to help out, I'm working hard too!",
+    "Likewise, I am the website's programmer and I'm very excited to present this to you!",
+    "I was the first to work on this website of course but the line of credit goes back further to another friend whose website this is essentially a spiritual successor to.",
+    "But...",
+    "...",
+    "...",
+    "...I'm probably the lead person only because I have infinite free time while Ren doesn't but I think it works out since coding takes too long anyways.",
+    "...",
+    "...",
+    "...",
+    "Uh...",
+    "Yep...",
+    "Oh yeah!",
+    "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue to reach out for sanity.",
+    "Have fun!"
+  ];
+
+  var order = 0;
   var a = 0;
-  var txt = 'Sample text sample text sample text sample text sample text sample text aaaaaaa sample text';
+  var txt = dialoguelist[order];
+  var portrait = portraitlist[order];
   var speed = 50;
 
   function typeWriter() {
     if (a < txt.length) {
-      document.getElementById("test1dialogue").innerHTML += txt.charAt(a);
+      document.getElementById("dialoguecontent").innerHTML += txt.charAt(a);
       a++;
       setTimeout(typeWriter, speed);
+
     }
   }
 
-document.addEventListener('keydown', nextdialogue);
+document.addEventListener('keydown', advancedialogue);
 
-  function nextdialogue(txt_, a_) {
+  function advancedialogue(txt_, a_, order_, portrait_) {
       txt_ = txt;
-      txt = "this is the next section of the sample text so feel free to continue reading this.";
       a_ = a;
+      order_ = order;
+      order += 1;
       a = 0;
-      document.getElementById("test1dialogue").innerHTML = "";
-      document.getElementById("portrait").src = "../face/nikosprites/Niko_speak.webp";
+      document.getElementById("dialoguecontent").innerHTML = "";
+      document.getElementById("portrait").src = portrait;
       typeWriter();
+      txt = dialoguelist[order];
+      portrait_ = portrait;
+      portrait = portraitlist[order];
   }
   </script>
 
 <div class="textboximg">
   <div class="dialogue">
-    <p id="test1dialogue"></p>
+    <p id="dialoguecontent"></p>
   </div>
-  <img id="portrait" class="portrait" src="../face/herosprites/DWHERO.png">
+  <img id="portrait" class="portrait" src="">
 </div>
 
 </body>
@@ -54,3 +103,95 @@ document.addEventListener('keydown', nextdialogue);
 
 
 </html>
+
+<!--
+<script>
+var letter_graphs = [
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+    "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+    "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6",
+    "7", "8", "9"
+];
+
+var digraphs = [
+    "ch", "sh", "ph", "th", "wh"
+];
+
+var bebebese = "res/audio/bebebese_slow.wav";
+
+var playbackSpeedMin = 2.5;
+var playbackSpeedMax = 3.0;
+var playbackSpeed = null;
+var sentence = '';
+
+function onSpeakButtonClick() {
+    playbackSpeed = Math.random() * (playbackSpeedMax-playbackSpeedMin) + playbackSpeedMin;
+//    sentence = document.getElementById("dialoguecontent").value;
+    sentence = txt.value;
+    sentence = buildSentence(sentence);
+    speakSentence();
+}
+
+function speakSentence() {
+    speakNextCharacter();
+}
+
+function speakNextCharacter() {
+    if (sentence.length == 0) return;
+
+    var character = sentence[0];
+    sentence = sentence.substring(1, sentence.length);
+
+    var characterFile = getCharacterAudioFile(character);
+    var player = new Audio();
+    player.src = characterFile;
+    player.mozPreservesPitch = false;
+    player.playbackRate = playbackSpeed;
+    player.play();
+    setTimeout(speakNextCharacter, 70);
+}
+
+function getCharacterAudioFile(character) {
+    if (character.match(/[a-z]/i)) {
+        return "res/audio/" + character + ".wav";
+    } else if (character == " ") {
+        return null;
+    } else {
+        return bebebese;
+    }
+}
+
+function buildSentence(sentence) {
+    sentence = sentence.toLowerCase();
+    sentence = replaceSwearWords(sentence);
+    sentence = replaceParentheses(sentence);
+    sentence = removeSpaces(sentence);
+    return sentence
+}
+
+function replaceSwearWords(sentence) {
+    var swearWords = ["fuck", "shit", "piss", "crap", "bugger"]
+    for (var eachWord = 0; eachWord < swearWords.length; eachWord++) {
+        sentence = sentence.replace(swearWords[eachWord], "*".repeat(swearWords[eachWord].length));
+    }
+    return sentence;
+}
+
+function replaceParentheses(sentence) {
+    while (sentence.includes("(") || sentence.includes(")")) {
+        var start = sentence.indexOf("(");
+        var end = sentence.indexOf(")");
+        sentence = sentence.substring(0, start) +
+            "*".repeat(end-start-1) +
+            sentence.substring(end + 1, sentence.length);
+    }
+
+    return sentence;
+}
+
+function removeSpaces(sentence) {
+    sentence = sentence.replace(" ", "");
+    return sentence;
+}
+</script>
+-->
