@@ -18,15 +18,15 @@
 </head>
 
 
-
+<!--
 <div id="todo">
   <nav>
     <label for="touch"><span>To do:</span></label>
     <input type="checkbox" id="touch">
-    <div class="slide"><p class="black apple"> Music | Web | Games/HTML5 | More RPGMaker | Home page content(look more like a website and less like a test page) | Background Music Selection | Chat App </p></div>
+    <div class="slide"><p class="black apple"> Web | Games/HTML5 | More RPGMaker | Update home page | Background Music Selection | Chat App </p></div>
   </nav>
-<div>
-
+</div>
+-->
 
 <body>
 
@@ -35,10 +35,91 @@
     <p class="white reno">Welcome to the website! This is a test title page for the website so it's of course not finished yet.</p>
     <p class="white reno">It's later needed for cookies or localStorage so enjoy the placeholder. Think of something like the Omori game webpage intro or the Celeste Everest title page. Maybe something like animal crossing now that I think of it.</p>
     <p class="white reno">I keep forgetting how good all Persona game UIs are.</p> -->
-    <p class="white reno">Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].</p>
-    <p class="white reno">This brainchild of a website was created by Stephen but also Lauren who tried very hard to help out. With any concerns or questions, reach out to us at any time(we have more free time than you could ever imagine)!
-    <p class="white big apple">Have fun exploring!</p>
-    <button type="button" onclick="welcometestpage()">Some button text is right here. Click here to remove the overlay and get to your regularly unscheduled game review website? I think?</button>
+    <script>
+    var portraitlist = [
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/nikosprites/Niko_smile_arm.webp',
+      'face/nikosprites/Niko_speak.webp',
+      'face/herosprites/happyH.gif',
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/herosprites/injuredH.gif',
+      'face/herosprites/injuredH.gif',
+      'face/herosprites/talkH.png',
+      'face/nikosprites/Niko.webp',
+      'face/herosprites/nervousH.png',
+      'face/nikosprites/Niko5.webp',
+      'face/nikosprites/Niko6.webp',
+      'face/nikosprites/Niko_wtf2.webp',
+      'face/herosprites/nervousH.png',
+      'face/herosprites/panickedH.png',
+      'face/herosprites/happyH.gif',
+      'face/nikosprites/Niko_smile_arm.webp'
+    ];
+
+    var dialoguelist = [
+      "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+      "Originally meant to be a small summer project, this brainchild of a website was created by me, Aster...",
+      "...and me, Ren!",
+      "I'm the website's designer and beta tester! Although I don't get as many opportunities to help out, I'm working hard too!",
+      "Likewise, I am the website's programmer and I'm very excited to present this to you!",
+      "I was the first to work on this website of course but the line of credit goes back further to another friend whose website this is essentially a spiritual successor to.",
+      "But...",
+      "...",
+      "...",
+      "...I'm probably the lead person only because I have infinite free time while Ren doesn't. It works out since coding takes too long but...",
+      "...",
+      "...",
+      "...",
+      "...",
+      "Uh...",
+      "Yep...",
+      "Oh yeah!",
+      "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue forth on your quest to sanity.",
+      "Have fun!"
+    ];
+
+    var order = 0;
+    var a = 0;
+    var txt = dialoguelist[order];
+    var portrait = portraitlist[order];
+    var speed = 50;
+
+    function typeWriter() {
+      if (a < txt.length) {
+        document.getElementById("dialoguecontent").innerHTML += txt.charAt(a);
+        a++;
+        setTimeout(typeWriter, speed);
+
+      } else {
+        order += 1;
+        txt = dialoguelist[order];
+        //portrait_ = portrait;
+        portrait = portraitlist[order];
+      }
+    }
+
+  document.addEventListener('keydown', advancedialogue);
+
+    function advancedialogue(txt_, a_, order_, portrait_) {
+        txt_ = txt;
+        a_ = a;
+        order_ = order;
+        a = 0;
+        document.getElementById("dialoguecontent").innerHTML = "";
+        document.getElementById("portrait").src = portrait;
+        typeWriter();
+    }
+    </script>
+
+  <div class="textboximg">
+    <div class="dialogue">
+      <p id="dialoguecontent" class="white apple">Press any key to start the dialogue!</p>
+    </div>
+    <img id="portrait" class="portrait" src="face/herosprites/talkH.png">
+  </div>
+    <button type="button" onclick="welcometestpage()">Click here to remove the overlay and get to your regularly unscheduled game review website? I think?</button>
   </div>
 
         <ul class="navbar white reno">
@@ -53,13 +134,13 @@
     <div class="content blueoverlay">
       <p class="white reno">Greetings!</p>
       <div class="white apple">
-        <p><em><u>Stephen's Notes</u></em>:</p>
-        <p>Welcome to [WEBSITE] run by Stephen, Lauren, and Aditya. If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
-        <p>I am this website's programmer and main developer while Lauren is the designer responsible for all of the UI you're seeing right now(courtesy to her mom for Lauren's lack of availability and technological exposure). Aditya is also here as a beta tester.<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
+        <p><em><u>Aster's Notes</u></em>:</p>
+        <p>If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
+        <p>I am this website's programmer and main developer while Ren is the designer responsible for all of the UI you're seeing right now(courtesy to their mom for Lauren's lack of availability and technological exposure).<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
         <p class="small"><em>Color theory is hard... help!</em></p>
       </div>
       <div class="white oneshot">
-        <p><em><u>Lauren's Note</u></em>:</p>
+        <p><em><u>Ren's Note</u></em>:</p>
         <p>Just a person who's trying to be somewhat helpful.</p>
       </div>
     </div>
@@ -147,6 +228,8 @@
             <p>-Include test descriptions for the different RPGMaker Games by hovering and changed a few backgrounds</p>
             <p>-Modified home page introduction text and shortened notes text</p>
             <p>-Changed colors of links to turquoise by default and yellow when active</p>
+            <p>-Cleaned up music player graphics(now available through all of the website), added a shuffle feature, and adjusted variables for future development purposes</p>
+
           <hr>
 
 
