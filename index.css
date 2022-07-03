@@ -115,15 +115,14 @@ li a:hover {
 }
 
 .textboximg {
-  align-self: center;
   background-image:url("face/textboximage.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 600px;
   height: 126px;
   padding: 0;
-  margin: 0;
-  display: inline-block;
+  margin: auto;
+  top: 30vh;
   position: relative;
   overflow: hidden;
 }
@@ -138,7 +137,7 @@ li a:hover {
 
 .portrait {
   float: right;
-  bottom: 6%;
+  bottom: 7%;
   right: 2%;
   width: 96px;
   height: 96px;
@@ -295,7 +294,7 @@ hr {
 }
 
 #titlescreen {
-  background: rgba(80, 120, 40, 1);
+  background: rgba(60, 20, 20, 0.7);
   width: 100vw;
   height: 100vh;
   float: left;
