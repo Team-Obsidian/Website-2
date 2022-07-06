@@ -115,7 +115,7 @@ li a:hover {
 }
 
 .textboximg {
-  background-image:url("face/textboximage.png");
+  background-image:url("face/textboximage3.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 600px;
@@ -242,11 +242,20 @@ span {
 
 
 .blueoverlay {
-  background: rgba(112, 128, 144, 0.3);
+  background: rgba(144, 111, 128, 0.8);
+  box-shadow: 30px 15px rgba(112, 144, 128, 0.3);
 }
 
 .redoverlay {
   background: rgba(144, 128, 112, 0.5);
+}
+
+.coverbg {
+  background-image: url('img/background/tvstatic.gif');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: 100;
 }
 
 .title {
@@ -275,13 +284,15 @@ span {
   opacity: 0;
   background-image: url("img/background/deltarunebattlebg.gif");
   background-repeat: repeat;
-  z-index: 5;
+  z-index: 8;
   margin: 0;
   transition: width 2s, opacity 0.5s;
   top: 0;
   left: 0;
   overflow-x: hidden;
   overflow-y: scroll;
+  color: white;
+  font-family: Apple Kid;
 }
 
 #changelog_content::-webkit-scrollbar {
@@ -294,7 +305,7 @@ hr {
 }
 
 #titlescreen {
-  background: rgba(60, 20, 20, 0.7);
+  background: rgba(10, 0, 20, 0.4);
   width: 100vw;
   height: 100vh;
   float: left;

@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'Apple Kid';
+    src: url('font/Apple-Kid.eot');
+    src: url('font/Apple-Kid.eot?#iefix') format('embedded-opentype'),
+        url('font/Apple-Kid.woff2') format('woff2'),
+        url('font/Apple-Kid.woff') format('woff'),
+        url('font/Apple-Kid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+  font-family: 'renogare';
+  src: url('font/renogare.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'terminus_ttfbold';
+    src: url('font/terminusttf-bold-webfont.woff2') format('woff2'),
+         url('font/terminusttf-bold-webfont.woff') format('woff'),
+         url('font/terminusttf-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+  cursor: url("img/icon/Hand-Arrow.cur"), default;
+  overflow: hidden;
+}
+
+h1, h2 {
+  text-align: center;
+  font-size: 48px;
+}
+
+p {
+  font-size: 32px;
+}
+
+img {
+  position: absolute;
+}
+
+body {
+  margin: 0;
+}
+
+#restofpage {
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  display: absolute;
+  left: 0;
+  bottom: 0;
+  background-image: url('img/background/background2.png');
+  background-size: cover;
+}
+
+#staticlayer {
+  background-image: url('img/background/tvstatic.gif');
+  width: 100vw;
+  height: 100vh;
+  float: left;
+  z-index: 3;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  transition: opacity 2s, display 0.5s;
+  pointer-events: none;
+}
+
+#textbox {
+  background-image:url("face/textboximage3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 126px;
+  padding: 0;
+  margin: auto;
+  top: 30vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 4;
+  display: none;
+}
+
+.dialogue {
+  float: left;
+  width: 80%;
+  margin-left: 3%;
+  color: white;
+  position:absolute;
+  z-index: 5;
+}
+
+.portrait {
+  float: right;
+  bottom: 7%;
+  right: 2%;
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  z-index: 5;
+}
+
+.reno {
+  font-family: renogare;
+}
+
+.apple {
+  font-family: Apple Kid;
+}
+
+.oneshot {
+  font-family: terminus_ttfbold;
+}
+
+
+.black {
+  color: black;
+}
+
+.white {
+  color: white;
+}
+
+.animate_content
+	animation animate 3s ease
+
+@keyframes animate
+	10%
+		transform scale(1, 0.002)
+	35%
+		transform scale(0.2, 0.002)
+		opacity 1
+	50%
+		transform scale(0.2, 0.002)
+		opacity 0
+	85%
+		transform scale(1, 0.002)
+		opacity 1
+	100%
+		transform scale(1, 1)
