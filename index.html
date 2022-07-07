@@ -32,14 +32,20 @@
 
 <body>
 
-  <div id="titlescreen" onclick="welcometestpage()">
+
     <!--
     <p class="white reno">Welcome to the website! This is a test title page for the website so it's of course not finished yet.</p>
     <p class="white reno">It's later needed for cookies or localStorage so enjoy the placeholder. Think of something like the Omori game webpage intro or the Celeste Everest title page. Maybe something like animal crossing now that I think of it.</p>
     <p class="white reno">I keep forgetting how good all Persona game UIs are.</p> -->
 
     <script>
-    var portraitlist = [
+    var portraitlist1 = [
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/herosprites/talkH.png'
+    ];
+
+    var portraitlist2 = [
       'face/herosprites/neutralH.gif',
       'face/herosprites/talkH.png',
       'face/nikosprites/Niko_smile_arm.webp',
@@ -61,7 +67,19 @@
       'face/nikosprites/Niko_smile_arm.webp'
     ];
 
-    var dialoguelist = [
+    var masterportrait = [
+      portraitlist1,
+      portraitlist2
+    ];
+
+    var dialoguelist1 = [
+      "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+      "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue forth on your quest to sanity.",
+      "Have fun!"
+
+    ];
+
+    var dialoguelist2 = [
       "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
       "Originally meant to be a small summer project, this brainchild of a website was created by me, Aster...",
       "...and me, Ren!",
@@ -84,44 +102,79 @@
 
     ];
 
+    var masterdialogue = [
+      dialoguelist1,
+      dialoguelist2
+    ];
+
     var order = 0;
     var a = 0;
-    var txt = dialoguelist[order];
-    var portrait = portraitlist[order];
+    var txt = dialoguelist1[order];
+    var portrait = portraitlist1[order];
     var speed = 25;
 
+    var dialogueindex = 0;
+
     function typeWriter() {
-      if (a < txt.length) {
-        document.getElementById("dialoguecontent").innerHTML += txt.charAt(a);
+      if (a < masterdialogue[dialogueindex][order].length) {
+        textsound.play();
+        document.getElementById("dialoguecontent").innerHTML += masterdialogue[dialogueindex][order].charAt(a);
         a++;
         setTimeout(typeWriter, speed);
         document.removeEventListener('keydown', advancedialogue);
       } else {
-        if (order + 1 <= dialoguelist.length) {
+        if (order + 1 <= masterdialogue[dialogueindex].length) {
         order += 1;
-        txt = dialoguelist[order];
-        //portrait_ = portrait;
-        portrait = portraitlist[order];
+        txt = masterdialogue[dialogueindex][order];
+        portrait = masterportrait[dialogueindex][order];
         document.addEventListener('keydown', advancedialogue);
       }
     }
-}
-  document.addEventListener('keydown', advancedialogue);
+    }
 
-    function advancedialogue(txt_, a_, order_, portrait_) {
-        if (order + 1 > dialoguelist.length) {
-          welcometestpage();
+    function advancedialogue() {
+        if (order + 1 > masterdialogue[dialogueindex].length) {
+          dialoguefinish();
           return;
         }
-        txt_ = txt;
-        a_ = a;
-        order_ = order;
         a = 0;
         document.getElementById("dialoguecontent").innerHTML = "";
         document.getElementById("portrait").src = portrait;
+        menuhover.play();
 
         typeWriter();
     }
+
+    function dialoguestart (dialogueindex_) {
+      order = 0;
+      dialogueindex = dialogueindex_;
+      txt = masterdialogue[dialogueindex][order];
+      a = 0;
+      portrait = masterportrait[dialogueindex][order];
+        document.getElementById("textbox").classList.remove("animate_close");
+      document.getElementById("dialoguecontent").innerHTML = "";
+      document.getElementById("portrait").src = portrait;
+      document.getElementById("staticlayer").style.opacity = "0.25";
+      document.getElementById("staticlayer").style.pointerEvents = "all";
+      document.getElementById("textbox").style.display = "block";
+      document.getElementById("textbox").classList.add("animate_open");
+      advancedialogue();
+      document.addEventListener('keydown', advancedialogue);
+      document.getElementById("textbox").classList.add("animate_content");
+    };
+
+    function dialoguefinish () {
+      setTimeout(function() {
+          document.getElementById("staticlayer").style.opacity = "0";
+          document.getElementById("staticlayer").style.pointerEvents = "none";
+          document.getElementById("textbox").style.display = "none";
+      }, 1000);
+            document.getElementById("textbox").classList.remove("animate_open");
+          document.getElementById("textbox").classList.add("animate_close");
+          document.removeEventListener('keydown', advancedialogue);
+          menuexit.play();
+    };
+
 
     var menuopen = new Howl({
       src: ["sfx/P4 Menu Open.wav"]
@@ -139,16 +192,21 @@
       src: ["sfx/P4 Hover.wav"]
     });
 
+    var textsound = new Howl({
+      src: ["sfx/generic1.wav"]
+    });
+
     </script>
-  <div class="textboximg">
-    <div class="dialogue">
-      <p id="dialoguecontent" class="white apple">Press any key to start the dialogue!<br>Click the page to move onto the rest of the website.<br>Wait until dialogue is done or else it glitches.</p>
+    <div id="staticlayer" onclick="dialoguefinish()"></div>
+
+    <div id="textbox" class="textboximg">
+      <div class="dialogue">
+        <p id="dialoguecontent" class="white apple"></p>
+      </div>
+      <img class="portrait" id="portrait" src="face/nikosprites/Niko_smile_arm.webp">
     </div>
-    <img id="portrait" class="portrait" src="face/herosprites/talkH.png">
-  </div>
 
 
-  </div>
 
         <ul class="white reno">
           <li><a class="" href="index.html">Home</a></li>
@@ -215,6 +273,7 @@ var z = "off";
       menuexit.play();
     }
   }
+  dialoguestart(1);
   </script>
 
 
@@ -253,6 +312,8 @@ var z = "off";
   <button type="button" onclick="set2()">Set Right</button>
   <button type="button" onclick="displaytest()">Check Console</button>
 -->
+
+
   </div>
 
   <div class="secondary">
@@ -267,8 +328,9 @@ var z = "off";
         <p>You'll also need your own files to play on the emulator which you can source from <a href="https://drive.google.com/drive/folders/1bsiXGznONNBy4HZklbyl2bq-DLqsNql_?usp=sharing">here</a>. NDS and N64 perform badly.
         <p>Considering you're probably a beta tester, <a href="https://team-obsidian.github.io/animalese-animal-crossing/">this</a> links to a feature I'd like to implement for the dialogue soon</p>
         <p>I've already replaced the voice samples from the original code credited to henryishuman with mine meaning that the audio recorded is my voice actually so go ham or something</p>
-        <p>Click the Pokedex to view the changelogs.</p><img src="img/icon/pokedex2.png" onclick="toggle()" width="100px" height="100px">
-
+        <p>Click the Pokedex to view the changelogs and the other to view dialogue again.</p>
+        <img src="img/icon/pokedex2.png" onclick="toggle()" width="100px" height="100px"> -->
+        <img src="img/pfpyumenikki.gif" onclick="dialoguestart(1)" width="100px" height="100px">
 
       </div>
     </div>

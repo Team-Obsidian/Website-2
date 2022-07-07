@@ -9,7 +9,13 @@
   <script src="page/howler.js"></script>
 </head>
 <script>
-var portraitlist = [
+var portraitlist1 = [
+  'face/herosprites/neutralH.gif',
+  'face/herosprites/talkH.png',
+  'face/herosprites/talkH.png'
+];
+
+var portraitlist2 = [
   'face/herosprites/neutralH.gif',
   'face/herosprites/talkH.png',
   'face/nikosprites/Niko_smile_arm.webp',
@@ -31,7 +37,19 @@ var portraitlist = [
   'face/nikosprites/Niko_smile_arm.webp'
 ];
 
-var dialoguelist = [
+var masterportrait = [
+  portraitlist1,
+  portraitlist2
+];
+
+var dialoguelist1 = [
+  "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+  "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue forth on your quest to sanity.",
+  "Have fun!"
+
+];
+
+var dialoguelist2 = [
   "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
   "Originally meant to be a small summer project, this brainchild of a website was created by me, Aster...",
   "...and me, Ren!",
@@ -53,14 +71,18 @@ var dialoguelist = [
   "Have fun!",
 
 ];
+var masterdialogue = [
+  dialoguelist1,
+  dialoguelist2
+];
 
 var order = 0;
 var a = 0;
-var txt = dialoguelist[order];
-var portrait = portraitlist[order];
+var txt = dialoguelist1[order];
+var portrait = portraitlist1[order];
 var speed = 25;
 
-
+var dialogueindex = 0;
 
 function typeWriter() {
   if (a < txt.length) {
@@ -70,24 +92,20 @@ function typeWriter() {
     setTimeout(typeWriter, speed);
     document.removeEventListener('keydown', advancedialogue);
   } else {
-    if (order + 1 <= dialoguelist.length) {
+    if (order + 1 <= txt.length) {
     order += 1;
-    txt = dialoguelist[order];
-    portrait_ = portrait;
-    portrait = portraitlist[order];
+    txt = masterdialogue[dialogueindex][order];
+    portrait = masterportrait[dialogueindex][order];
     document.addEventListener('keydown', advancedialogue);
   }
 }
 }
 
-function advancedialogue(txt_, a_, order_, portrait_) {
-    if (order + 1 > dialoguelist.length) {
+function advancedialogue() {
+    if (order + 1 > masterdialogue[dialogueindex].length) {
       dialoguefinish();
       return;
     }
-    txt_ = txt;
-    a_ = a;
-    order_ = order;
     a = 0;
     document.getElementById("dialoguecontent").innerHTML = "";
     document.getElementById("portrait").src = portrait;
@@ -95,20 +113,20 @@ function advancedialogue(txt_, a_, order_, portrait_) {
     typeWriter();
 }
 
-function dialoguestart (order_, text_, a_, portrait_) {
-  order_ = order;
+function dialoguestart (dialogueindex_) {
   order = 0;
-  txt_ = txt;
-  txt = dialoguelist[order];
-  a_ = a;
+  dialogueindex = dialogueindex_;
+  txt = masterdialogue[dialogueindex][order];
   a = 0;
-  portrait_ = portrait;
-  portrait = portraitlist[order];
+  portrait = masterportrait[dialogueindex][order];
+  document.getElementById("textbox").classList.remove("animate_close");
   document.getElementById("dialoguecontent").innerHTML = "";
   document.getElementById("portrait").src = portrait;
   document.getElementById("staticlayer").style.opacity = "0.25";
   document.getElementById("staticlayer").style.pointerEvents = "all";
   document.getElementById("textbox").style.display = "block";
+  document.getElementById("textbox").classList.add("animate_open");
+  menuselect.play();
   advancedialogue();
   document.addEventListener('keydown', advancedialogue);
   //  document.getElementById("textbox").classList.add("animate_content");
@@ -118,12 +136,13 @@ function dialoguefinish () {
 
 
   setTimeout(function() {
-    document.getElementById("staticlayer").style.opacity = "0";
-    document.getElementById("staticlayer").style.pointerEvents = "none";
+      document.getElementById("staticlayer").style.opacity = "0";
+      document.getElementById("staticlayer").style.pointerEvents = "none";
       document.getElementById("textbox").style.display = "none";
   }, 1000);
-  document.getElementById("textbox").classList.remove("animate_content");
-  document.removeEventListener('keydown', advancedialogue);
+        document.getElementById("textbox").classList.remove("animate_open");
+      document.getElementById("textbox").classList.add("animate_close");
+      document.removeEventListener('keydown', advancedialogue);
 
 };
 
@@ -148,11 +167,12 @@ var textsound = new Howl({
   src: ["sfx/generic1.wav"]
 });
 
+
 </script>
 
 <body>
   <div id="restofpage">
-<img src="img/yumenikkisnow.gif" onclick="dialoguestart()">
+<img src="img/icon/pokedex2.png" onclick="dialoguestart(1)">
 
   <div id="staticlayer" onclick="dialoguefinish()"></div>
 

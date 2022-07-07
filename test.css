@@ -132,20 +132,24 @@ body {
   color: white;
 }
 
-.animate_content
-	animation animate 3s ease
 
-@keyframes animate
-	10%
-		transform scale(1, 0.002)
-	35%
-		transform scale(0.2, 0.002)
-		opacity 1
-	50%
-		transform scale(0.2, 0.002)
-		opacity 0
-	85%
-		transform scale(1, 0.002)
-		opacity 1
-	100%
-		transform scale(1, 1)
+@keyframes animate_open {
+  0% {transform: scale(0.2, 0.1); opacity: 0}
+	10% {transform: scale(0.2, 0.1); opacity: 1;}
+	55% {transform: scale(1, 0.1); opacity: 1;}
+	100% {transform: scale(1, 1);}
+}
+.animate_open {
+	animation: animate_open 1.5s ease;
+  animation-iteration-count: 1;
+}
+
+@keyframes animate_close {
+  10% {transform: scale(1, 0.002);}
+  55% {transform: scale(0.2, 0.002); opacity: 1;}
+  100% {transform: scale(0.2, 0.002); opacity: 0;}
+}
+
+.animate_close {
+	animation: animate_close 2s ease;
+}

@@ -114,17 +114,19 @@ li a:hover {
   color: white;
 }
 
-.textboximg {
+#textbox {
   background-image:url("face/textboximage3.png");
   background-size: contain;
   background-repeat: no-repeat;
   width: 600px;
   height: 126px;
   padding: 0;
-  margin: auto;
+  margin-left: calc( 50vw - 300px );
   top: 30vh;
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  z-index: 4;
+  display: none;
 }
 
 .dialogue {
@@ -359,4 +361,41 @@ hr {
 
 img {
   z-index: 11;
+}
+
+@keyframes animate_open {
+  0% {transform: scale(0.2, 0.002); opacity: 0}
+	10% {transform: scale(0.2, 0.002); opacity: 1;}
+	55% {transform: scale(1, 0.002); opacity: 1;}
+	100% {transform: scale(1, 1);}
+}
+.animate_open {
+	animation: animate_open 1.5s ease;
+  animation-iteration-count: 1;
+}
+
+@keyframes animate_close {
+  10% {transform: scale(1, 0.002);}
+  55% {transform: scale(0.2, 0.002); opacity: 1;}
+  100% {transform: scale(0.2, 0.002); opacity: 0;}
+}
+.animate_close {
+	animation: animate_close 2s ease;
+  animation-iteration-count: 1;
+}
+
+#staticlayer {
+  background-image: url('img/background/tvstatic.gif');
+  width: 100vw;
+  height: 100vh;
+  float: left;
+  z-index: 3;
+  overflow: hidden;
+  position: absolute;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  transition: opacity 2s, display 0.5s;
+  pointer-events: none;
 }
