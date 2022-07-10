@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attempt 2!</title>
+  <link href="index.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="img/icon/Favicon.png">
+  <script src="page/howler.js"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZCESLFE1R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2ZCESLFE1R');
+  </script>
+</head>
+
+
+
+<!--
+<div id="todo">
+  <nav>
+    <label for="touch"><span>To do:</span></label>
+    <input type="checkbox" id="touch">
+    <div class="slide"><p class="black apple"> Web | Games/HTML5 | More RPGMaker | Update home page | Background Music Selection | Chat App </p></div>
+  </nav>
+</div>
+-->
+
+<body>
+
+
+    <!--
+    <p class="white reno">Welcome to the website! This is a test title page for the website so it's of course not finished yet.</p>
+    <p class="white reno">It's later needed for cookies or localStorage so enjoy the placeholder. Think of something like the Omori game webpage intro or the Celeste Everest title page. Maybe something like animal crossing now that I think of it.</p>
+    <p class="white reno">I keep forgetting how good all Persona game UIs are.</p> -->
+
+    <script>
+    var portraitlist1 = [
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/herosprites/talkH.png'
+    ];
+
+    var portraitlist2 = [
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/nikosprites/Niko_smile_arm.webp',
+      'face/nikosprites/Niko_speak.webp',
+      'face/herosprites/happyH.gif',
+      'face/herosprites/neutralH.gif',
+      'face/herosprites/talkH.png',
+      'face/herosprites/injuredH.gif',
+      'face/herosprites/injuredH.gif',
+      'face/herosprites/talkH.png',
+      'face/nikosprites/Niko.webp',
+      'face/herosprites/nervousH.png',
+      'face/nikosprites/Niko5.webp',
+      'face/nikosprites/Niko6.webp',
+      'face/nikosprites/Niko_wtf2.webp',
+      'face/herosprites/nervousH.png',
+      'face/herosprites/panickedH.png',
+      'face/herosprites/happyH.gif',
+      'face/nikosprites/Niko_smile_arm.webp'
+    ];
+
+    var masterportrait = [
+      portraitlist1,
+      portraitlist2
+    ];
+
+    var dialoguelist1 = [
+      "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+      "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue forth on your quest to sanity.",
+      "Have fun!"
+
+    ];
+
+    var dialoguelist2 = [
+      "Welcome to [WEBSITE]. We've got [VIDEO GAME LINKS], [GUIDES], and [MUSIC] in addition to [MORE].",
+      "Originally meant to be a small summer project, this brainchild of a website was created by me, Aster...",
+      "...and me, Ren!",
+      "I'm the website's designer and beta tester! Although I don't get as many opportunities to help out, I'm working hard too!",
+      "Likewise, I am the website's programmer and I'm very excited to present this to you!",
+      "I was the first to work on this website of course but the line of credit goes back further to another friend whose website this is essentially a spiritual successor to.",
+      "But...",
+      "...",
+      "...",
+      "...I'm probably the lead person only because I have infinite free time while Ren doesn't. It works out since coding takes too long but...",
+      "...",
+      "...",
+      "...",
+      "...",
+      "Uh...",
+      "Yep...",
+      "Oh yeah!",
+      "I hope this dialogue box test didn't keep you here for too long. Have fun with the games, stay hydrated, and continue forth on your quest to sanity.",
+      "Have fun!",
+
+    ];
+
+    var masterdialogue = [
+      dialoguelist1,
+      dialoguelist2
+    ];
+
+    var order = 0;
+    var a = 0;
+    var txt = dialoguelist1[order];
+    var portrait = portraitlist1[order];
+    var speed = 25;
+
+    var dialogueindex = 0;
+
+    function typeWriter() {
+      if (a < masterdialogue[dialogueindex][order].length) {
+        textsound.play();
+        document.getElementById("dialoguecontent").innerHTML += masterdialogue[dialogueindex][order].charAt(a);
+        a++;
+        setTimeout(typeWriter, speed);
+        document.removeEventListener('keydown', advancedialogue);
+      } else {
+        if (order + 1 <= masterdialogue[dialogueindex].length) {
+        order += 1;
+        txt = masterdialogue[dialogueindex][order];
+        portrait = masterportrait[dialogueindex][order];
+        document.addEventListener('keydown', advancedialogue);
+      }
+    }
+    }
+
+    function advancedialogue() {
+        if (order + 1 > masterdialogue[dialogueindex].length) {
+          dialoguefinish();
+          return;
+        }
+        a = 0;
+        document.getElementById("dialoguecontent").innerHTML = "";
+        document.getElementById("portrait").src = portrait;
+        menuhover.play();
+
+        typeWriter();
+    }
+
+    function dialoguestart (dialogueindex_) {
+      order = 0;
+      dialogueindex = dialogueindex_;
+      txt = masterdialogue[dialogueindex][order];
+      a = 0;
+      portrait = masterportrait[dialogueindex][order];
+        document.getElementById("textbox").classList.remove("animate_close");
+      document.getElementById("dialoguecontent").innerHTML = "";
+      document.getElementById("portrait").src = portrait;
+      document.getElementById("staticlayer").style.opacity = "0.25";
+      document.getElementById("staticlayer").style.pointerEvents = "all";
+      document.getElementById("textbox").style.display = "block";
+      document.getElementById("textbox").classList.add("animate_open");
+      advancedialogue();
+      document.addEventListener('keydown', advancedialogue);
+      document.getElementById("textbox").classList.add("animate_content");
+    };
+
+    function dialoguefinish () {
+      setTimeout(function() {
+          document.getElementById("staticlayer").style.opacity = "0";
+          document.getElementById("staticlayer").style.pointerEvents = "none";
+          document.getElementById("textbox").style.display = "none";
+      }, 1000);
+            document.getElementById("textbox").classList.remove("animate_open");
+          document.getElementById("textbox").classList.add("animate_close");
+          document.removeEventListener('keydown', advancedialogue);
+          menuexit.play();
+    };
+
+
+    var menuopen = new Howl({
+      src: ["sfx/P4 Menu Open.wav"]
+    });
+
+    var menuexit = new Howl({
+      src: ["sfx/P4 Menu Exit.wav"]
+    });
+
+    var menuselect = new Howl({
+      src: ["sfx/P4 Select.wav"]
+    });
+
+    var menuhover = new Howl({
+      src: ["sfx/P4 Hover.wav"]
+    });
+
+    var textsound = new Howl({
+      src: ["sfx/generic1.wav"]
+    });
+
+    </script>
+    <div id="staticlayer" onclick="dialoguefinish()"></div>
+
+    <div id="textbox" class="textboximg">
+      <div class="dialogue">
+        <p id="dialoguecontent" class="white apple"></p>
+      </div>
+      <img class="portrait" id="portrait" src="face/nikosprites/Niko_smile_arm.webp">
+    </div>
+
+
+
+        <ul class="white reno">
+          <li><a class="" href="index.html">Home</a></li>
+          <li><a class="" href="page/games.html">Games</a></li>
+          <li><a class="" href="page/music.html">Music</a></li>
+          <li><a class="" href="#">Misc</a></li>
+        </ul>
+
+  <div class="main">
+    <p class="white reno title big">[WEBSITE] Home</p>
+    <div class="content blueoverlay">
+      <p class="white reno">Greetings!</p>
+      <div class="white apple">
+        <p><em><u>Aster's Notes</u></em>:</p>
+        <p>If this is part of the first few entries to show up on your screen, then good job, you're part of my glorified experiment testing group. I hope you enjoy my personal tastes shoveled in and crammed everywhere once features start to fill up.</p>
+        <p>I am this website's programmer and main developer while Ren is the designer responsible for all of the UI you're seeing right now(courtesy to their mom for Ren's lack of availability and technological exposure).<br><br> If you've got any feedback on anything at all or some thoughts, tell me anytime and we can do some ideacrafting together!</p>
+        <p class="small"><em>Color theory is hard... help!</em></p>
+      </div>
+      <div class="white oneshot">
+        <p><em><u>Ren's Note</u></em>:</p>
+        <p>Just a person who's trying to be somewhat helpful.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <audio id="myAudio" src="sound/letsgettogethernow.mp3" autoplay preload="auto" loop >
+  </audio>
+  <img id="musictoggle" src="img/icon/bugbunny.webp" onClick="togglePlay()">
+
+  <script>
+
+
+  var myAudio = document.getElementById("myAudio");
+
+  function togglePlay() {
+    return myAudio.paused ? myAudio.play() : myAudio.pause();
+  };
+
+  function welcometestpage () {
+    document.getElementById("titlescreen").style["opacity"] = "0";
+    setTimeout(function() {
+        document.getElementById("titlescreen").style.display = 'none';
+    }, 2000);
+    document.removeEventListener('keydown', advancedialogue);
+
+  };
+
+
+var z = "off";
+  function toggle(z_) {
+    z_ = z;
+    if (z == "off") {
+      document.getElementById("changelog_content").style.width = "60vw";
+      document.getElementById("changelog_content").style.opacity = "1";
+      menuselect.play();
+      z = "on";
+      return
+    } else {
+      z = "off";
+      document.getElementById("changelog_content").style.width = "0";
+      document.getElementById("changelog_content").style.opacity = "0";
+
+      menuexit.play();
+    }
+  }
+  dialoguestart(1);
+  </script>
+
+
+<!--
+
+  <script>
+
+  if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+  }
+
+  localStorage.setItem('myFirstKey', 'myFirstValue');
+  console.log(localStorage.getItem('myFirstKey'));
+
+  function set1 () {
+    localStorage.test = 'left';
+  }
+
+  function set2 () {
+    localStorage.test = 'right';
+  }
+
+  function defaulty2 () {
+    localStorage.test = 'default';
+  }
+
+  function displaytest () {
+    console.log(localStorage.test)
+  }
+
+  defaulty2();
+  </script>
+
+  <button type="button" onclick="set1()">Set Left</button>
+  <button type="button" onclick="set2()">Set Right</button>
+  <button type="button" onclick="displaytest()">Check Console</button>
+-->
+
+
+  </div>
+
+  <div class="secondary">
+    <p class="white reno title big">Notes and Patchnotes</p>
+    <div class="content redoverlay">
+      <div class="white apple">
+        <p>Note: Music, Misc, and HTML5/Web from the Games section are dead links or don't lead to anywhere. </p>
+        <p>Bunnies are your friend. They control the music.</p>
+        <p>If it doesn't automatically start playing, then you have entered the website by typing in the link instead of navigating from somewhere else(something I need to fix so it works all of the time).</p>
+        <p>Pages scroll even if you can't see a scrollbar</p>
+        <p><a href="https://github.com/Team-Obsidian/website-2/commits/main">Here are the github commits</a> if you are interested in the code changes</p>
+        <p>You'll also need your own files to play on the emulator which you can source from <a href="https://drive.google.com/drive/folders/1bsiXGznONNBy4HZklbyl2bq-DLqsNql_?usp=sharing">here</a>. NDS and N64 perform badly.
+        <p>Considering you're probably a beta tester, <a href="https://team-obsidian.github.io/animalese-animal-crossing/">this</a> links to a feature I'd like to implement for the dialogue soon</p>
+        <p>I've already replaced the voice samples from the original code credited to henryishuman with mine meaning that the audio recorded is my voice actually so go ham or something</p>
+        <p>Click the Pokedex to view the changelogs and the other to view dialogue again.</p>
+        <img src="img/icon/pokedex2.png" onclick="toggle()" width="100px" height="100px"> -->
+        <img src="img/pfpyumenikki.gif" onclick="dialoguestart(1)" width="100px" height="100px">
+
+      </div>
+    </div>
+
+    <div id="changelog_content">
+
+  <hr><p class="big">Changelogs</p><hr>
+      <p>6/22/22 5:18PM<br>Version 0.0.2 <br>Prealpha</p>
+        <p>Not much changes since I'm new to this but I'll slowly make progress one feature at a time.</p>
+      <hr>
+        <p>-Include changelogs on the home page that can toggle a slide in page</p>
+        <p>-Include test descriptions for the different RPGMaker Games by hovering and changed a few backgrounds</p>
+        <p>-Modified home page introduction text and shortened notes text</p>
+        <p>-Changed colors of links to turquoise by default and yellow when active</p>
+        <p>-Cleaned up music player graphics(now available through all of the website), added a shuffle feature, and adjusted variables for future development purposes</p>
+        <p>-Add basic dialogue box to title screen and click to fade</p>
+
+      <hr>
+
+
+      <p>6/20/22 10:32PM<br>Version 0.0.1 <br>Prealpha</p>
+        <p> As it's the start of the website, there's nothing here to really say besides have fun with the base features.</p>
+      <hr>
+        <p> -Home page including 2 sides and a introduction as well as some notes.</p>
+        <p> -Navigation bar layout for the 4 main website categories</p>
+        <p> -Games page with an animated background, 2 working links and a dead link to an emulator, RPGMaker page, and HTML page respectively.</p>
+        <p> -RPGMaker page that contains working links to Yume Nikki, Off, and Ib with a changing background when hovering.</p>
+        <p> -Basic automatic music player for each page indicated with a bunny sprite</p>
+      <hr>
+    </div>
+
+  </div>
+</body>
+
+
+
+
+</html>

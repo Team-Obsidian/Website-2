@@ -105,10 +105,9 @@ body {
   float: right;
   bottom: 7%;
   right: 2%;
-  width: 96px;
-  height: 96px;
   position: absolute;
   z-index: 5;
+  height: auto;
 }
 
 .reno {

@@ -11,8 +11,8 @@
 <script>
 var portraitlist1 = [
   'face/herosprites/neutralH.gif',
-  'face/herosprites/talkH.png',
-  'face/herosprites/talkH.png'
+  'face/herosprites/DWHEROmodified.png',
+  'face/nikosprites/nikodefault2.webp'
 ];
 
 var portraitlist2 = [
@@ -171,8 +171,8 @@ var textsound = new Howl({
 </script>
 
 <body>
-  <div id="restofpage">
-<img src="img/icon/pokedex2.png" onclick="dialoguestart(1)">
+
+<!-- <img src="img/icon/pokedex2.png" onclick="dialoguestart(0)">
 
   <div id="staticlayer" onclick="dialoguefinish()"></div>
 
@@ -181,9 +181,24 @@ var textsound = new Howl({
       <p id="dialoguecontent" class="white apple">Press any key to start the dialogue!<br>Click the page to move onto the rest of the website.<br>Wait until dialogue is done or else it glitches.</p>
     </div>
     <img class="portrait" id="portrait" src="face/nikosprites/Niko_smile_arm.webp">
-  </div>
+  </div> -->
 
+  <div id="demo">
+    <h2>Let AJAX change this text</h2>
+    <button type="button" onclick="loadDoc()">Change Content</button>
   </div>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "index.txt", true);
+  xhttp.send();
+}
+</script>
 </body>
 
 </html>
