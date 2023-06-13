@@ -6,7 +6,7 @@
   <title>Music</title>
   <link href="../index.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
-<body>
+<body onload="load()">
   <div id="musicbackground" class="big apple">
     <ul class="navbar white reno">
       <li><a class="" href="../index.html">Home</a></li>
@@ -18,99 +18,67 @@
 
     <div id="musiccontent" class="black apple">
 <br><br><br><br><br><br>
-<p>welcome to the music testing page</p>
-<p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website[40 songs]</p>
-<p id="displaysong">Song file name: ~3dworldmysteryhouse.mp3~</p>
-<p id="displaysongnum">Track #0</p>
+<p id="welcome">welcome to the music testing page</p>
+<p>this place will get updated soon but here, you'll be able to listen to every song that I've uploaded on this website</p>
+<p>metadata implementation pending</p>
+<p id="displaysong">No Song Currently Playing [TEMP]</p>
+<p id="displaysongnum">Track #0[TEMP]</p>
   <script language="javascript" src="howler.js"></script>
+
+      <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>//eruda.init();</script>
   <script>
-    var list = [
-    '../sound/3dworldmysteryhouse.mp3',
-    '../sound/bodymeasurement.mp3',
-    '../sound/dogcheck.mp3',
-    '../sound/dreamyard.mp3',
-    '../sound/dsishop.mp3',
-    '../sound/eshop3ds.mp3',
-    '../sound/forestfrenzy.mp3',
-    '../sound/galaxyfileselect.mp3',
-    '../sound/gen5gate.mp3',
-    '../sound/gen6gate.mp3',
-    '../sound/goodforhealth.mp3',
-    '../sound/hipshop.mp3',
-    '../sound/kirbyapartment.mp3',
-    '../sound/lastresort.mp3',
-    '../sound/letsgettogethernow.mp3',
-    '../sound/librarystroll.mp3',
-    '../sound/miieditorwiiu.mp3',
-    '../sound/miimaker3ds.mp3',
-    '../sound/miitopiaprofile.mp3',
-    '../sound/mycastletown.mp3',
-    '../sound/mywiifit.mp3',
-    '../sound/nl7am.mp3',
-    '../sound/nl11am.mp3',
-    '../sound/pokemoncenter.mp3',
-    '../sound/recyclingisaconcept.mp3',
-    '../sound/rustboro.mp3',
-    '../sound/screenselectwiisports.mp3',
-    '../sound/shop.mp3',
-    '../sound/splatoon1shop.mp3',
-    '../sound/splatoon1tutorial.mp3',
-    '../sound/systemsettings3ds.mp3',
-    '../sound/tosleep.mp3',
-    '../sound/trees.mp3',
-    '../sound/uwasotemperate.mp3',
-    '../sound/wavedash.mp3',
-    '../sound/welcometothecity.mp3',
-    '../sound/welcometothecityalt.mp3',
-    '../sound/welcometotheworldofpokemon.mp3',
-    '../sound/whitespace.mp3',
-    '../sound/wiishop.mp3',
-    '../sound/wiisportstutorial.mp3',
-]
+    var list = []
+    var listname = []
 //duration()
 var i=0;
-
+var shuffletoggle=false;
+    
+    
 function autoplay(i_, list) {
     i = i_;
     this.howl = new Howl({
         src: [list[i]],
         preload: true,
         autoplay: true,
+        onplay: function () {
+          document.getElementById("displaysong").innerHTML = "Song file name: ~" + listname[i] + "~";
+          document.getElementById("displaysongnum").innerHTML = "Track #" + String(i + 1);
+          
+        },
         onend: function () {
+
+          if (shuffletoggle != true) {
             if ((i + 1) == list.length) {
-                i == 0;
                 autoplay(0, list);
                 console.log(i);
-                document.getElementById("displaysong").innerHTML = "Song file name: ~" + list[i].substring(9) + "~";
-                document.getElementById("displaysongnum").innerHTML = "Track #" + i;
+                
+                //document.getElementById("displaysongnum").innerHTML = "Track #" + i;
             } else {
                 i += 1;
                 autoplay(i, list);
                 console.log(i);
-                document.getElementById("displaysong").innerHTML = "Song file name: ~" + list[i].substring(9) + "~";
-                document.getElementById("displaysongnum").innerHTML = "Track #" + i;
-                console.log(list[i].substring(9));
+                //document.getElementById("displaysongnum").innerHTML = "Track #" + i;
+                //console.log(list[i].substring(9));
             }
+            }
+          else {
+            shuffle();
+          }
         }
     })
 }
 
+var jsonRaw = "testing";
+    
 function skip() {
-
-    const sound = this.howl.pause()._sounds[0];
-    const currentSeek = sound._seek;
-    const forwardTo = this.howl.duration()-0.03;
-    console.log('skipping to ' + forwardTo + ' from ' + currentSeek);
-    this.howl.seek(forwardTo);
-    this.howl.play();
-    }
+  this.howl.unload();
+  autoplay(i+1, list);
+  }
 
 function shuffle() {
-  this.howl.pause();
-  autoplay(randomnum(), list);
-  document.getElementById("displaysong").innerHTML ="Song file name: ~" + list[i].substring(9) + "~";
-  document.getElementById("displaysongnum").innerHTML = "Track #" + i;
-  this.howl.play();
+  this.howl.unload();
+  autoplay(randomnum() - 1, list);
 }
 
 function randomnum() {
@@ -128,7 +96,7 @@ function audiotoggle() {
 
 autoplay(0, list);
 
-
+/*
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
   localStorage = new LocalStorage('./scratch');
@@ -152,7 +120,7 @@ function defaulty2 () {
 function displaytesttest () {
   console.log(sessionStorage.test)
 }
-/*
+
 function savesong (i_m) {
   i_m = i
   sessionStorage.songnum = i;
@@ -173,7 +141,29 @@ function loadsong (i_h) {
   }
 }
 */
-defaulty2();
+//defaulty2();
+async function load() {
+    let url = 'https://api.github.com/repos/team-obsidian/mus-think/git/trees/main?recursive=1';
+    jsonRaw = await (await fetch(url)).json();
+    console.log(jsonRaw);
+//    var object = JSON.parse(JSON.stringify(jsonRaw));
+//    document.getElementById("welcome").innerHTML = jsonRaw.tree[0].path;
+//    document.getElementById("json-view").innerHTML = JSON.stringify(jsonRaw);
+
+    for (var i=0 ; i < jsonRaw.tree.length ; i++) {
+//      if (jsonRaw.tree[i].path.search("sound/") >= 0) {
+        if (jsonRaw.tree[i].path.search("mp3") >= 0) {
+        console.log(jsonRaw.tree[i].path);
+        listname.push(jsonRaw.tree[i].path);
+        list.push("https://github.com/Team-Obsidian/mus-think/raw/main/" + jsonRaw.tree[i].path);
+      }
+  }  
+  console.log(list);
+  autoplay(0, list);
+}
+
+
+    
   </script>
 
 <img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
