@@ -333,7 +333,7 @@ hr {
   z-index: 10;
   padding: 0;
   pointer-events: none;
-}
+} 
 
 #musiccontent {
   z-index: 5;
@@ -344,7 +344,7 @@ hr {
   background-clip: border-box;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 50vw;
+  width: 60vw;
   height: 90vh;
   margin-left:auto;
   margin-right: auto;
@@ -398,4 +398,10 @@ img {
   left: 0;
   transition: opacity 2s, display 0.5s;
   pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #menubarcontainer {
+    display: none;
+  }
 }

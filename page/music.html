@@ -8,12 +8,14 @@
   <link rel="icon" type="image/x-icon" href="../img/icon/Favicon.png">
 <body onload="load()">
   <div id="musicbackground" class="big apple">
+    <div id="menubarcontainer">
     <ul class="navbar white reno">
       <li><a class="" href="../index.html">Home</a></li>
       <li><a class="" href="games.html">Games</a></li>
       <li><a class="" href="music.html">Music</a></li>
       <li><a class="" href="#">Misc</a></li>
-    </ul>
+    </ul> 
+    </div>
   </div>
 
     <div id="musiccontent" class="black apple">
@@ -32,8 +34,18 @@
     var listname = []
 //duration()
 var i=0;
-var shuffletoggle=false;
+var shuffletoggle = false;
+
+function toggleshuffle() {
+  if (shuffletoggle==false) {
+    shuffletoggle = true;
     
+  } else {
+    shuffletoggle = false;
+  }
+  console.log("Shuffle Status: " + shuffletoggle.toString());
+  document.getElementById("shufflestatus").innerHTML = "Shuffle Status: " + shuffletoggle.toString();
+}
     
 function autoplay(i_, list) {
     i = i_;
@@ -44,12 +56,13 @@ function autoplay(i_, list) {
         onplay: function () {
           document.getElementById("displaysong").innerHTML = "Song file name: ~" + listname[i] + "~";
           document.getElementById("displaysongnum").innerHTML = "Track #" + String(i + 1);
-          
+
+          console.log(listname[i] + " ~ " + i);
         },
         onend: function () {
 
           if (shuffletoggle != true) {
-            if ((i + 1) == list.length) {
+            if ((i + 1) >= list.length) {
                 autoplay(0, list);
                 console.log(i);
                 
@@ -58,11 +71,8 @@ function autoplay(i_, list) {
                 i += 1;
                 autoplay(i, list);
                 console.log(i);
-                //document.getElementById("displaysongnum").innerHTML = "Track #" + i;
-                //console.log(list[i].substring(9));
             }
-            }
-          else {
+          } else {
             shuffle();
           }
         }
@@ -72,9 +82,16 @@ function autoplay(i_, list) {
 var jsonRaw = "testing";
     
 function skip() {
-  this.howl.unload();
-  autoplay(i+1, list);
-  }
+    this.howl.unload();
+    if (shuffletoggle != true) {
+      if (i+1>=list.length) {
+        autoplay(0, list);
+      } else {
+      this.howl.unload();
+      autoplay(i+1, list); }} else {
+        shuffle()
+    }
+}
 
 function shuffle() {
   this.howl.unload();
@@ -82,7 +99,13 @@ function shuffle() {
 }
 
 function randomnum() {
-  return Math.floor(Math.random() * list.length);
+  var testvalue = Math.floor(Math.random() * list.length);
+  if (testvalue != i) { 
+  return testvalue;
+  }
+  else {
+    randomnum();
+  }
 }
 
 
@@ -166,9 +189,9 @@ async function load() {
     
   </script>
 
-<img src="../img/icon/forestbunny.gif" onclick="shuffle()"><p>Skip to a random song</p>
-<img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next Song</p>
-<img src="../img/icon/cupcakebunny.gif" onclick="audiotoggle()"><p>Turn on and off the music</p>
+<img src="../img/icon/forestbunny.gif" onclick="toggleshuffle()" ><p id="shufflestatus">Shuffle Status: false</p>
+<img src="../img/icon/dustbunny.gif" onclick="skip()"><p>Next</p>
+<img src="../img/icon/cupcakebunny.gif" onclick="audiotoggle()"><p>Pause / Play</p>
 <!-- <img src="../img/icon/ghostbunny.gif" onclick="savesong()"><p>Save your music(I think this works)</p>
 <img src="../img/icon/bugbunny.webp" onclick="loadsong()"><p>Load your music(I think this works)</p> -->
 
